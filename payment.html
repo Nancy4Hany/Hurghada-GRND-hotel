@@ -1,0 +1,563 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style1.css">
+    <title>Payment</title>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">Booking</h1>
+        <ul class="menu-container">
+            <li class="menu-item">Home</li>
+            <li class="menu-item">Rooms</li>
+            <li class="menu-item">About Us</li>
+            <li class="menu-item red">Our Offers</li>
+        </ul>
+        <div class="menu-icons-container">
+           <img src="Resources/Search.svg" alt="" class="icon"> 
+           <img src="Resources/Profile.svg" alt="" class="icon"> 
+           <img src="Resources/Cart.svg" alt="" class="icon"> 
+        </div>
+    </header>
+
+    <div class="progress-checkout-container">
+        <div class="progress-step-container">
+            <div class="step-check"></div>
+            <span class="step-title">Booking</span>
+        </div>
+        <div class="progress-step-container">
+            <div class="step-check"></div>
+            <span class="step-title">Payment</span>
+        </div>
+        <div class="progress-step-container">
+            <div class="step-check"></div>
+            <span class="step-title">Review</span>
+        </div>
+    </div>
+    
+    <div class="form-container">
+        <h2 class="form-title">Payment Details</h2>
+        <form action="" class="checkout-form">
+            <div class="input-line">
+                <label for="name">Name on card</label>
+                <input type="text" name="name" id="name" placeholder="Your name and surname">
+            </div>
+            <div class="input-line">
+                <label for="name">Card number</label>
+                <input type="text" name="name" id="name" placeholder="1111-2222-3333-4444">
+            </div>
+            <div class="input-container">
+                <div class="input-line">
+                    <label for="name">Expiring Date</label>
+                    <input type="text" name="name" id="name" placeholder="09-21">
+                </div>
+                <div class="input-line">
+                    <label for="name">CVC</label>
+                    <input type="text" name="name" id="name" placeholder="***">
+                </div>
+            </div>
+            <input type="button" value="Save Payment">
+        </form>
+    </div>
+
+</body>
+</html> end of code1 -->
+<!-- <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
+<style>
+/*
+module.exports = {
+    plugins: [require('@tailwindcss/forms'),]
+};
+*/
+.form-radio {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+  display: inline-block;
+  vertical-align: middle;
+  background-origin: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  flex-shrink: 0;
+  border-radius: 100%;
+  border-width: 2px;
+}
+
+.form-radio:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media not print {
+  .form-radio::-ms-check {
+    border-width: 1px;
+    color: transparent;
+    background: inherit;
+    border-color: inherit;
+    border-radius: inherit;
+  }
+}
+
+.form-radio:focus {
+  outline: none;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'%3e%3cpath d='M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z'/%3e%3c/svg%3e");
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+  background-repeat: no-repeat;
+  padding-top: 0.5rem;
+  padding-right: 2.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+}
+
+.form-select::-ms-expand {
+  color: #a0aec0;
+  border: none;
+}
+
+@media not print {
+  .form-select::-ms-expand {
+    display: none;
+  }
+}
+
+@media print and (-ms-high-contrast: active), print and (-ms-high-contrast: none) {
+  .form-select {
+    padding-right: 0.75rem;
+  }
+}
+</style>
+
+<div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 pb-10 pt-16">
+    <div class="w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700" style="max-width: 600px">
+        <div class="w-full pt-1 pb-5">
+            <div class="bg-indigo-500 text-white overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg flex justify-center items-center">
+                <i class="mdi mdi-credit-card-outline text-3xl"></i>
+            </div>
+        </div>
+        <div class="mb-10">
+            <h1 class="text-center font-bold text-xl uppercase">Secure payment info</h1>
+        </div>
+        <div class="mb-3 flex -mx-2">
+            <div class="px-2">
+                <label for="type1" class="flex items-center cursor-pointer">
+                    <input type="radio" class="form-radio h-5 w-5 text-indigo-500" name="type" id="type1" checked>
+                    <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" class="h-8 ml-3">
+                </label>
+            </div>
+            <div class="px-2">
+                <label for="type2" class="flex items-center cursor-pointer">
+                    <input type="radio" class="form-radio h-5 w-5 text-indigo-500" name="type" id="type2">
+                    <img src="https://www.sketchappsources.com/resources/source-image/PayPalCard.png" class="h-8 ml-3">
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="font-bold text-sm mb-2 ml-1">Name on card</label>
+            <div>
+                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Smith" type="text"/>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="font-bold text-sm mb-2 ml-1">Card number</label>
+            <div>
+                <input class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="0000 0000 0000 0000" type="text"/>
+            </div>
+        </div>
+        <div class="mb-3 -mx-2 flex items-end">
+            <div class="px-2 w-1/2">
+                <label class="font-bold text-sm mb-2 ml-1">Expiration date</label>
+                <div>
+                    <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                        <option value="01">01 - January</option>
+                        <option value="02">02 - February</option>
+                        <option value="03">03 - March</option>
+                        <option value="04">04 - April</option>
+                        <option value="05">05 - May</option>
+                        <option value="06">06 - June</option>
+                        <option value="07">07 - July</option>
+                        <option value="08">08 - August</option>
+                        <option value="09">09 - September</option>
+                        <option value="10">10 - October</option>
+                        <option value="11">11 - November</option>
+                        <option value="12">12 - December</option>
+                    </select>
+                </div>
+            </div>
+            <div class="px-2 w-1/2">
+                <select class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-10">
+            <label class="font-bold text-sm mb-2 ml-1">Security code</label>
+            <div>
+                <input class="w-32 px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="000" type="text"/>
+            </div>
+        </div>
+        <div>
+            <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
+        </div>
+    </div>
+</div>
+
+ BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+    <div>
+        <a title="Buy me a beer" href="https://www.buymeacoffee.com/scottwindon" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+            <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"/>
+        </a>
+    </div>
+</div> end of conde2-->
+<!-- <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tailwind.css">
+
+  <title>Checkout Page</title>
+</head>
+<body class="min-h-full">
+  <div class="container mx-auto relative px-6 pt-8 sm:px-16 sm:pt-10 lg:px-32 lg:pt-12">
+    <h1 class="text-4xl font-bold mb-4 px-3">Checkout</h1>
+    <div class="block md:flex mb-3 p-3">
+       checkout items 
+      <div class="lg:max-w-sm sm:order-last mb-10 lg:mb-0 md:ml-10 lg:ml-24 p-4 sm:p-6 bg-gray-200 fit-content-height rounded-2xl">
+         Grid 
+        <div class="grid grid-cols-1 gap-8">
+          <div class="flex">
+            <div class="w-1/3">
+              <img class="object-cover rounded-lg overflow-hidden" src="assets/photo1.png" alt="vintage bag">
+            </div>
+            <div class="flex flex-col justify-between w-2/3 pl-6">
+              <div class="">
+                <h4 class="text-xl lg:text-2xl text-gray-700 font-semibold leading-none">Vintage Backbag</h4>
+                <p class="whitespace-no-wrap">
+                  <span class="text-lg text-orange-400 font-semibold">$54.99</span>
+                  <span class="ml-2 lg:ml-4 text-base text-gray-700 font-semibold line-through">$94.99</span>
+                </p>
+              </div>
+
+              <div class="flex items-center p-1 rounded-lg border border-gray-800 fit-content">
+                <button class="flex items-center p-1 bg-gray-300 rounded-lg">
+                  <i class="material-icons md-18 text-gray-600">remove</i>
+                </button>
+                <span class="mx-4 lg:mx-8 font-bold text-xl">1</span>
+                <button class="flex items-center p-1 bg-gray-300 rounded-lg">
+                  <i class="material-icons md-18 text-gray-600">add</i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="w-1/3">
+              <img class="object-cover rounded-lg overflow-hidden" src="assets/photo2.png" alt="vintage bag">
+            </div>
+            <div class="flex flex-col justify-between w-2/3 px-6">
+              <div class="">
+                <h4 class="text-xl lg:text-2xl text-gray-700 font-semibold leading-none">Levi Shoes</h4>
+                <p class="whitespace-no-wrap">
+                  <span class="text-lg text-orange-400 font-semibold">$74.99</span>
+                  <span class="ml-2 lg:ml-4 text-base text-gray-700 font-semibold line-through">$124.99</span>
+                </p>
+              </div>
+
+              <div class="flex items-center p-1 rounded-lg border border-gray-800 fit-content">
+                <button class="flex items-center p-1 bg-gray-300 rounded-lg">
+                  <i class="material-icons md-18 text-gray-600">remove</i>
+                </button>
+                <span class="mx-4 lg:mx-8 font-bold text-xl">1</span>
+                <button class="flex items-center p-1 bg-gray-300 rounded-lg">
+                  <i class="material-icons md-18 text-gray-600">add</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+         End grid 
+        <div class="mt-20">
+          <div class="flex items-center justify-between border-t-2 py-2">
+            <span class="font-bold text-gray-800 text-2xl">Shipping</span>
+            <span class="font-bold text-gray-800 text-lg">$19</span>
+          </div>
+          <div class="flex items-center justify-between border-t-2 py-2">
+            <span class="font-bold text-gray-800 text-2xl">Total</span>
+            <span class="font-bold text-gray-800 text-lg">$148.98</span>
+          </div>
+        </div>
+
+      </div>
+       end checkout items 
+
+       form 
+      <div class="max-w-4xl mr-5 lg:mr-10">
+        <form name="checkoutForm" onsubmit="return validate()">
+          <h3 class="text-lg font-bold mb-3">Contact information</h3>
+          <div class="relative mb-4">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="email">
+              Email
+            </label>
+            <input class="shadow appearance-none border rounded-lg w-full py-3 px-8 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold" id="email" type="email" placeholder="Enter your email..." required>
+            <div class="absolute inset-y-0 left-0 flex items-center px-2 py-1 mt-5">
+              <i class="material-icons md-18 text-gray-600 h-4 w-4">mail</i>
+            </div>
+          </div>
+          <div class="relative mb-10">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="email">
+              Phone
+            </label>
+            <input class="shadow appearance-none border rounded-lg w-full py-3 px-8 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline font-semibold" id="phone" type="number" placeholder="Enter your phone..." required>
+            <div class="absolute inset-y-0 left-0 flex items-center px-2 py-1 mt-5">
+              <i class="material-icons md-18 text-gray-600 h-4 w-4">phone</i>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold mt-2 mb-3">Shipping address</h3>
+          <div class="relative mb-4">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="name">
+              Full name
+            </label>
+            <input class="shadow appearance-none border rounded-lg w-full py-3 px-8 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline placeholder-gray-500 font-semibold" id="name" type="text" placeholder="John Doe" required>
+            <div class="absolute inset-y-0 left-0 flex items-center px-2 py-1 mt-5">
+              <i class="material-icons md-18 text-gray-600 h-4 w-4">account_circle</i>
+            </div>
+          </div>
+          <div class="relative mb-4">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="address">
+              Address
+            </label>
+            <input class="shadow appearance-none border rounded-lg w-full py-3 px-8 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline placeholder-gray-500 font-semibold" id="address" type="text" placeholder="Your address..." required>
+            <div class="absolute inset-y-0 left-0 flex items-center px-2 py-1 mt-5">
+              <i class="material-icons md-18 text-gray-600 h-4 w-4">home</i>
+            </div>
+          </div>
+          <div class="relative mb-4">
+            <label class="block text-gray-700 text-sm font-semibold mb-2" for="city">
+              City
+            </label>
+            <input class="shadow appearance-none border rounded-lg w-full py-3 px-8 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline placeholder-gray-500 font-semibold" id="city" type="text" placeholder="Your city..." required>
+            <div class="absolute inset-y-0 left-0 flex items-center px-2 py-1 mt-5">
+              <i class="material-icons md-18 text-gray-600 h-4 w-4">location_city</i>
+            </div>
+          </div>
+          <div class="flex mb-4">
+            <div class="relative flex-1">
+              <label class="block text-gray-700 text-sm font-semibold mb-2" for="country">Country</label>
+              <select class="shadow appearance-none border rounded-lg w-full py-3 px-8 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline placeholder-gray-500 font-semibold" id="country" required>
+                <option>South African</option>
+                <option>Zambia</option>
+                <option>Zimbabwe</option>
+              </select>
+              <div class="absolute inset-y-0 left-0 flex items-center px-2 py-1 mt-5">
+                <i class="material-icons md-18 text-gray-600 h-4 w-4">location_city</i>
+              </div>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 py-1 mt-5">
+                <i class="material-icons md-18 text-gray-600 h-4 w-4">keyboard_arrow_down</i>
+              </div>
+            </div>
+            <div class="relative ml-6 flex-1">
+              <label class="block text-gray-700 text-sm font-semibold mb-2" for="postal-code">Postal Code</label>
+              <input class="shadow appearance-none border rounded-lg w-full py-3 px-8 text-gray-700 leading-tight border-gray-800 focus:outline-none focus:shadow-outline placeholder-gray-500 font-semibold" type="text" id="postal-code" placeholder="Your postal code..." required>
+              <div class="absolute inset-y-0 left-0 flex items-center px-2 py-1 mt-5">
+                <i class="material-icons md-18 text-gray-600 h-4 w-4">markunread_mailbox</i>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-semibold">
+              <input class="mr-2 leading-tight" type="checkbox" required>
+              <span class="">
+                Save this information for next time.
+              </span>
+            </label>
+          </div>
+          <div class="flex justify-end">
+            <button class="px-8 py-3 bg-orange-500 text-white font-semibold rounded-lg" type="submit" id="submitted">
+              Continue
+            </button>
+          </div>
+        </form>
+      </div>
+       end form 
+    </div>
+
+    <div id="demo"></div>
+
+    <footer class="relative  bottom-0 left-0 w-full text-center my-4">Alick Mwanza @ DevChallenge.io</footer>
+  </div>
+
+  <script type="text/javascript">
+    function validate() {
+      var email, phone, name, address, city, country, postalCode;
+
+      email = document.getElementById('email');
+      phone = document.getElementById('phone');
+      name = document.getElementById('name');
+      address = document.getElementById('address');
+      city = document.getElementById('city');
+      country = document.getElementById('country');
+      postalCode = document.getElementById('postal-code');
+
+      if(
+        email.checkValidity() && phone.checkValidity() && name.checkValidity() && address.checkValidity()
+        && city.checkValidity() && country.checkValidity() && postalCode.checkValidity()
+      ) {
+        alert('Checkout successfully submitted');
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
+</body>
+</html> end of code3-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+     <link rel="stylesheet" href="tailwind.css"> 
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="mx-10 md:mx-20">
+    <header class="sm:block md:flex justify-end items-end pt-10 pb-24 border-b-2">
+        <div class="md:pr-10">
+            <nav class="md:flex">
+                <div><a href="#" class="font-medium text-gray-700 text-xl pl-10 uppercase">Rooms</a></div>
+                <div><a href="#" class="font-medium text-gray-700 text-xl pl-10 uppercase">Recently Viewed</a></div>
+                <div><a href="#" class="font-medium text-gray-700 text-xl pl-10 uppercase">Bookings</a></div>
+            </nav>
+        </div>
+        <div class="ml-11">
+            <img src="images/logo.png" class="rounded-full" width="70" height="60" alt="">
+        </div>
+    </header>
+    <main>
+        <section>
+           <div class="mb-5">
+                <div class="md:flex justify-between">
+                    <div>
+                        <h1 class="font-semibold text-xl text-gray-800 mb-1 mt-6">Payment Information</h1>
+                        <p class="text-gray-400 text-xs">Choose your method of payment.</p>
+                        <div class="md: pt-6 pl-7 text-white space-y-2 w-96 h-60 mt-5 rounded-md bg-gradient-to-r from-blue-500 to-blue-600">
+                            <h6 class="text-xs uppercase font-semibold">card number</h6>
+                            <h6 class="text-xs uppercase tracking-widest font-semibold">4324 5433 9382 1030</h6>
+                            <img src="images/chip.png" width="50" height="50" alt="">
+                            <h6 class="text-xs uppercase font-semibold">expiration date</h6>
+                            <h6 class="text-xs uppercase font-semibold">03 / 24</h6>
+                            <div class="flex justify-between items-center">
+                                <h6 class="text-sm font-semibold mb-5">John Doe</h6>
+                                <div class="mb-5">
+                                <img src="images/mastercard-logo.jpg" width="85" height="20" class="pr-5" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-end items-center space-x-5 md:flex justify-end items-center mt-5">
+                            <div class="flex justify-start items-center mr-2 bg-red-500">
+                                <div class="w-14 h-5"><img src="visa.jpg" alt=""> </div>
+                                <div class="w-14 h-5"><img src="discover.jpg" alt=""></div> 
+                            </div>
+                            <div class="flex ml-5 items-center">
+                                <div class="w-3 h-3 rounded-full bg-gray-200"></div>
+                                <img class="ml-5 w-14 h-5" src="images/paypal.png" alt="">
+                            </div>
+                        </div>                
+                        <form action="" class="mt-10">
+                            <div class="block w-full md:flex">
+                                <div class="mr-10">
+                                    <label for="" class="block text-sm mb-4">Credit card number</label>
+                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                </div>
+                                <div>
+                                    <label for="" class="block text-sm mb-4">Expiration date</label>
+                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                </div>
+                            </div>
+                            <div class="block md:flex">
+                                <div class="mr-10">
+                                    <label for="" class="block text-sm mb-4 mt-4">Security Code</label>
+                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                </div>
+                                <div>
+                                    <label for="" class="block text-sm mb-4 mt-4">Postal Code</label>
+                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="flex justify-start items-center mt-5">
+                            <input type="radio" name="" id="">
+                            <p class="text-sm ml-3">Use this card for next time purchase</p>
+                        </div>
+                        <div class="bg-blue-600 text-center p-4 rounded-sm text-white font-medium text-sm mt-5">
+                            Save information
+                        </div>
+                    </div>                 
+                </div>
+           </div>
+           <hr>         
+        </section>
+        <section class="space-y-10 mb-10">
+            <div class="flex justify-between">
+                <div class="font-bold text-gray-700">Subtotal</div>
+                <div class="font-bold text-gray-700">₦2,497.00</div>
+            </div>
+            <div class="flex justify-between">
+                <div class="font-bold text-gray-700">Estimated TAX</div>
+                <div class="font-bold text-gray-700">₦119.64</div>
+            </div>
+            <div class="flex justify-between">
+                <div class="font-bold text-gray-700">Promotional Code: <span class="text-gray-300">Z4KXLM9A</span> </div>
+                <div class="font-bold text-gray-700">₦-60.00</div>
+            </div>
+            <hr>
+           <div class="flex justify-between">
+                <div>
+                    <button class="font-semibold bg-blue-600 px-10 py-3 text-white text-xl rounded-sm">Complete payment</button>
+                </div>
+                <h1 class="font-extrabold text-xl">TOTAL:₦2556.64</h1>
+           </div>
+        </section>
+    </main>
+</body>
+</html>
