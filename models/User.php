@@ -3,7 +3,7 @@ require_once dirname(__FILE__) . '/Model.php';
 
 class User extends Model{
     protected $table = "users";
-    protected $hidden = ["password", "national_id"];
+    protected $hidden = ["password"];
 
     public static function all(){
         $instance = new self();
@@ -20,6 +20,8 @@ class User extends Model{
         $table = $instance->table;
         return DB::query("SELECT u.*, t.name as user_type_name FROM $table u, user_types t WHERE t.id = u.user_type_id AND t.name='receptionist'");
     }
-   
+
+
+
 
 }

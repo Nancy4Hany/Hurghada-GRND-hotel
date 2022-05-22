@@ -1,9 +1,14 @@
+<?php
+session_start();
+require 'controllers/ReservationsController.php';
+$controller = new ReservationsController();
+$reservations = $controller->show();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-    session_start();
-    //include "QC.html";
     include "connect.php";
     ?>
     <link rel="stylesheet" href="./layout/css/app.css">
@@ -19,43 +24,48 @@
         a:hover{
             background-color:darkorange;
         }
-        .hidden{
-            visibility: hidden;
-            display:none;
-        }
     </style>
         
   
 </head>
 <body>
     <?php
-    function reserveCard(){
-        //lazem form....
-    }
-    $id = $_SESSION['id'];
-        $sql = "select * from reservations where user_id = '$id'";//id lazem yet8ayar
-        $result = mysqli_query($con,$sql);
+    // $id = $_SESSION['id'];
+    //     $sql = "select * from reservations where user_id = '$id'";//id lazem yet8ayar
+    //     $result = mysqli_query($con,$sql);
 
-        if($result)
-        {
-            while($row = mysqli_fetch_assoc($result))
-            {
-            $id = $row['id'];
-            $start = $row['start_date'];
-            $end = $row['end_date'];
-            //$_SESSION['temp_id'] = $row['id'];
-            echo "
-            
-            <a href = 'details.php?id=".$id."' class='card' id = 'card'>
-            <div class='card-body'>
-            <h5>3 Rooms, 4 Guests</h5>
-            <h5>$start - $end</h5>
-            </div>
-            </a>
-            ";
-            }
+    //     if($result)
+    //     {
+    //         while($row = mysqli_fetch_assoc($result))
+    //         {
+    //         $id = $row['id'];
+    //         $start = $row['start_date'];
+    //         $end = $row['end_date'];
+    //         echo "
+    //         <a href = 'details.php?id=".$id."' class='card' id = 'card'>
+    //         <div class='card-body'>
+    //         <h5>3 Rooms, 4 Guests</h5>
+    //         <h5>$start - $end</h5>
+    //         </div>
+    //         </a>
+    //         ";
+    //         }
+    //     }
+    foreach($reservations as $reservation){
+        $guests = 0;
+        foreach($reservation["rooms"] as $room){
+            $guests += $room["quantity_of_guests"];
         }
-
+        ?>
+        <a href = 'details.php?id=<?=$reservation["id"]?>' class='card' id = 'card'>
+             <div class='card-body'>
+             <h5><?=count($reservation["rooms"]);?>Rooms, <?=$guests?>Guests</h5>
+             <h5><?=$reservation["start_date"] .'-'. $reservation["end_date"];?></h5>
+             </div>
+             </a>
+        
+        <?php
+    }
     ?>
 </body>
 </html>

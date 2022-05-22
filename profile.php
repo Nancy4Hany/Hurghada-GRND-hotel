@@ -1,10 +1,18 @@
+<?php
+session_start();
+require 'controllers/ProfileController.php';
+
+$controller = new ProfileController();
+$user = $controller->showData();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php
-     session_start();
     include "QC.html";
-    include "connect.php";
+    //include "connect.php";
 
     ?>
 
@@ -21,27 +29,34 @@
         </div>
         <div class = "text-xl leading-normal indent-5">
             <?php
-                $sql = "select * from users where id = '1'";//id lazem yet8ayar
-                $result = mysqli_query($con,$sql);
-                $row = mysqli_fetch_assoc($result);
+                // $sql = "select * from users where id = '1'";//id lazem yet8ayar
+                // $result = mysqli_query($con,$sql);
+                // $row = mysqli_fetch_assoc($result);
 
-                if($result)
-                {
-                    $name = $row['name'];
-                    $email = $row['email'];
-                    $birth = $row['birth_date'];
-                    $nationalid = $row['national_id'];
-                    $id = $row['id'];
-                    echo "<h5>Name: $name</h5>
-                    <h5>Email: $email</h5>
-                    <h5>Birth Date: $birth</h5>
-                    <h5>National ID: $nationalid</h5>
-                    <h5>ID:$id</h5>";
+                // if($result)
+                // {
+                //     $name = $row['name'];
+                //     $email = $row['email'];
+                //     $birth = $row['birth_date'];
+                //     $nationalid = $row['national_id'];
+                //     $id = $row['id'];
+                //     echo "<h5>Name: $name</h5>
+                //     <h5>Email: $email</h5>
+                //     <h5>Birth Date: $birth</h5>
+                //     <h5>National ID: $nationalid</h5>
+                //     <h5>ID:$id</h5>";
 
-                }
+                // }
+
+
+
                 
             ?>
-            
+            <h5>Name: <?= $user->data["name"]?></h5>
+            <h5>Email: <?= $user->data["email"]?></h5>
+            <h5>Birth Date: <?= $user->data["birth_date"]?></h5>
+            <h5>National ID: <?= $user->data["national_id"]?></h5>
+            <!-- <h5>ID:<?= $_SESSION['id']?></h5> -->
 
         </div>
     </div>
