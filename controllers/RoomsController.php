@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__FILE__) . '/../classes/DB.php';
 require_once dirname(__FILE__) . '/../models/Room.php';
+require_once dirname(__FILE__) . '/../models/RoomPhoto.php';
 
 class RoomsController{
     public function add_room()
@@ -17,6 +17,9 @@ class RoomsController{
             if($validation_message != ""){
                 return $validation_message;
             }
+          
+           
+
             $room_name = $_POST['name'];
             $room_number = $_POST['number'];
             $room_price = $_POST['price'];
@@ -42,6 +45,17 @@ class RoomsController{
             }
             
             if($room->save()){
+                foreach($_FILES['image']["name"] as $key=>$val){
+                    $target_directory = dirname(__FILE__).'/../uploads';
+                    $ext = @end((explode(".", $_FILES['image']["name"][$key])));
+                    $file_name = time() . ".$ext";
+                    $target_file = $target_directory . '/'. $file_name;
+                    move_uploaded_file($_FILES["image"]["tmp_name"][$key], $target_file);
+                    $room_photo = new RoomPhoto();
+                    $room_photo->data["image"] = $file_name;
+                    $room_photo->data["room_id"] = $room->data["id"];
+                    $room_photo->save();
+                }
                 return true;
             }
         }

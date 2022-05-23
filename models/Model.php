@@ -13,6 +13,8 @@ class Model {
             $instance->data = array_filter($instance->data, function($key) use ($instance) { 
                 return (gettype($key) != 'integer' && !in_array($key, $instance->hidden) ); 
             }, ARRAY_FILTER_USE_KEY);
+        }else{
+            return false;
         }
         return $instance;
     }
@@ -23,7 +25,20 @@ class Model {
         $instance->data = $data;
         return $instance;
     }
-
+    public static function last(){
+        $instance = new static();
+        $table = $instance->table;
+        $data = DB::query("SELECT * FROM $table ORDER BY id DESC LIMIT 1");
+        if($data){
+            $instance->data = $data[0];
+            $instance->data = array_filter($instance->data, function($key) use ($instance) { 
+                return (gettype($key) != 'integer' && !in_array($key, $instance->hidden) ); 
+            }, ARRAY_FILTER_USE_KEY);
+        }else{
+            return false;
+        }
+        return $instance;
+    }
     public function save()
     {
         $keys = array_keys($this->data);
@@ -49,7 +64,11 @@ class Model {
             DB::query($sql,$values);
         }else{
             DB::query("INSERT INTO {$this->table}($keys_string) VALUES($keys_parameters_string)", $values);
+            $instance = new static();
+            $instance = $instance::last();
+            $this->data["id"] =$instance->data["id"];
         }
+        
         return true;
     }
 

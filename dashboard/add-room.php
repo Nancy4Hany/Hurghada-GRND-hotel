@@ -36,7 +36,7 @@ include "../includes/dashboard/header.php";
     }
     ?>
     <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-      <form action="" method="POST">
+      <form action="" method="POST" enctype="multipart/form-data">
         <?php
         if(isset($room)){
           ?>
@@ -51,6 +51,10 @@ include "../includes/dashboard/header.php";
         <label class="block text-sm mt-4">
           <span class="text-gray-700 dark:text-gray-400">Room Number</span>
           <input value="<?= (isset($room)) ? $room["number"] : ""; ?>" name="number" type="number" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="100" />
+        </label>
+        <label class="block text-sm mt-4">
+          <span class="text-gray-700 dark:text-gray-400">Room Images</span>
+          <input accept="image/*" name="image[]" multiple type="file" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="100" />
         </label>
         <label class="block text-sm mt-4">
           <span class="text-gray-700 dark:text-gray-400">Room Type</span>

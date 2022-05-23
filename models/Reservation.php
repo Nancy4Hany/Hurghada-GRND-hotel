@@ -45,6 +45,8 @@ class Reservation extends Model
                 }, ARRAY_FILTER_USE_KEY);
             }, $reservation_rooms);
             $instance->data["rooms"] = $reservation_rooms;
+        }else{
+            return false;
         }
         return $instance;
     }
