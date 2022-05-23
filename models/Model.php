@@ -8,6 +8,7 @@ class Model {
         $instance = new static();
         $table = $instance->table;
         $data = DB::query("SELECT * FROM $table WHERE id=:id", array(':id' => $id));
+        
         if($data){
             $instance->data = $data[0];
             $instance->data = array_filter($instance->data, function($key) use ($instance) { 
