@@ -10,7 +10,7 @@ class Reservation extends Model
     {
         $instance = new self();
         $table = $instance->table;
-        $reservations = DB::query("SELECT * FROM $table");
+        $reservations = DB::query("SELECT  r.*, u.name as user_name, uu.name as receptionist_name FROM $table r, users u, users uu WHERE u.id=r.user_id AND uu.id=r.checked_in_by");
         $reservations = array_map(function ($array) {
             $reservation_rooms = DB::query('SELECT rr.*, r.name as room_name FROM reservation_rooms rr, rooms r WHERE rr.room_id = r.id AND reservation_id=:reservation_id', array(':reservation_id' => $array["id"]));
             $reservation_rooms = array_map(function ($array2) {

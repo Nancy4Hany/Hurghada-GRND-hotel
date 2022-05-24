@@ -6,8 +6,16 @@ class ReservationsController
 {
     public function show()
     {
+        if(!isset($_SESSION["id"])){
+            $_SESSION["id"] = 1;
+        }
         $user_reservations = Reservation::user_reservations($_SESSION["id"]);
         return($user_reservations);
+    }
+
+    public function get_reservations(){
+        $reservations = Reservation::all();
+        return($reservations);
     }
     public function showDetails()
     {

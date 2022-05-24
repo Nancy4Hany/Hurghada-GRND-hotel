@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__FILE__) . '/../classes/DB.php';
+require_once dirname(__FILE__) . '/../classes/functions.php';
 
 class Model {
     public $data;

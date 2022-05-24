@@ -8,7 +8,7 @@ if(!isset($_GET['id']) || !isset($_GET['type'])){
 $id = $_GET['id'];
 $type = $_GET['type'];
 
-$type = str_replace(' ', '', ucwords(str_replace('_', ' ', $type)));
+$type = Helper::snake2camel($type);
 
 $instance = $type::find($id);
 

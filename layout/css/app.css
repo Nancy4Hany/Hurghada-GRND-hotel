@@ -1275,6 +1275,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 246 178 / var(--tw-bg-opacity));
+}
+
 .bg-red-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(224 36 36 / var(--tw-bg-opacity));
@@ -1658,6 +1663,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(158 158 158 / var(--tw-text-opacity));
 }
 
+.text-yellow-700 {
+  --tw-text-opacity: 1;
+  color: rgb(142 75 16 / var(--tw-text-opacity));
+}
+
 .text-purple-200 {
   --tw-text-opacity: 1;
   color: rgb(220 215 254 / var(--tw-text-opacity));
@@ -2002,6 +2012,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(200 30 30 / var(--tw-bg-opacity));
 }
 
+.dark .dark\:bg-yellow-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(142 75 16 / var(--tw-bg-opacity));
+}
+
 .dark .dark\:bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(18 19 23 / var(--tw-bg-opacity));
@@ -2080,6 +2095,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .dark .dark\:text-gray-100 {
   --tw-text-opacity: 1;
   color: rgb(244 245 247 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-yellow-100 {
+  --tw-text-opacity: 1;
+  color: rgb(253 246 178 / var(--tw-text-opacity));
 }
 
 .dark .dark\:text-purple-300 {
