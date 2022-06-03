@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    Name
+    <input type="text" name="name"> <br>
+    Email
+    <input type="text" name="email"> <br>
+    Password
+    <input type="text" name="password"><br>
+    National_ID
+    <input type="text" name="national_id"><br>
+    Birth Date
+    <input type="text" name="birth_date"><br>
+    Uset Type Id
+    <input type="text" name="user_type_id"><br>
+    <button id="submit_button">Submit </button>
+    <script>
+        var submit_button = document.getElementById('submit_button');
+        submit_button.addEventListener('click',function(){
+            $.post(
+                "http://localhost/hurghada_gnd_hotel/api/create_user",
+                {
+                    "name":document.querySelector('input[name="name"]').value,
+                    "email":document.querySelector('input[name="email"]').value,
+                    "password":document.querySelector('input[name="password"]').value,
+                    "national_id":document.querySelector('input[name="national_id"]').value,
+                    "birth_date":document.querySelector('input[name="birth_date"]').value,
+                    "user_type_id":document.querySelector('input[name="user_type_id"]').value,
+                },
+                function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+        });
+    </script>
+</body>
+</html>
