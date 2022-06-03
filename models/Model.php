@@ -86,6 +86,8 @@ class Model {
         $table = $instance->table;
         $values = DB::query("SELECT * FROM $table");
         $values = array_map(function ($array) {
+           
+           
             return array_filter($array, function ($key) {
                 return gettype($key) != "integer";
             }, ARRAY_FILTER_USE_KEY);

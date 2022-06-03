@@ -503,25 +503,29 @@ module.exports = {
                                 <img class="ml-5 w-14 h-5" src="images/paypal.png" alt="">
                             </div>
                         </div>                
-                        <form action="" class="mt-10">
+                        <form action="" class="mt-10" method ="$_POST">
                             <div class="block w-full md:flex">
                                 <div class="mr-10">
+                                  <label for="" class="block text-sm mb-4">Card holder</label>
+                                  <input type="text" name="card_holder" class="border-2 w-64 h-10 rounded-sm">
+                                </div>
+                                <div class="mr-10">
                                     <label for="" class="block text-sm mb-4">Credit card number</label>
-                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                    <input type="text"  name ="creditcard_number"class="border-2 w-64 h-10 rounded-sm">
                                 </div>
                                 <div>
                                     <label for="" class="block text-sm mb-4">Expiration date</label>
-                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                    <input type="text" name="expdate" class="border-2 w-64 h-10 rounded-sm">
                                 </div>
                             </div>
                             <div class="block md:flex">
                                 <div class="mr-10">
                                     <label for="" class="block text-sm mb-4 mt-4">Security Code</label>
-                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                    <input type="text"name ="securitycode" class="border-2 w-64 h-10 rounded-sm">
                                 </div>
                                 <div>
                                     <label for="" class="block text-sm mb-4 mt-4">Postal Code</label>
-                                    <input type="text" class="border-2 w-64 h-10 rounded-sm">
+                                    <input type="text" name="postalcode"class="border-2 w-64 h-10 rounded-sm">
                                 </div>
                             </div>
                         </form>
