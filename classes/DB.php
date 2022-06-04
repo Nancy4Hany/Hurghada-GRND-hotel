@@ -1,7 +1,7 @@
 
 <?php
 // Send a raw HTTP header
-
+session_start();
 class DB{
 
     private static function connect(){
