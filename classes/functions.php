@@ -1,4 +1,3 @@
-<!-- helper functions  -->
 <?php
 
 class Helper{

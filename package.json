@@ -8,7 +8,10 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.0.24"
+<<<<<<< HEAD
   },
   "dependencies": {
+=======
+>>>>>>> 4948dc94726919e40fc18246bd11e67db83efac2
   }
 }

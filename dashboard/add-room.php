@@ -66,7 +66,9 @@ include "../includes/dashboard/header.php";
             <?php
             } ?>
             <?php
-            foreach ($room_types->all() as $type) {
+                  foreach ($room_types->all() as $type) 
+                 
+                  {
             ?>
               <option
               <?= (isset($room) && $room["room_type_id"] == $type["id"])?"selected":""; ?>
@@ -78,7 +80,7 @@ include "../includes/dashboard/header.php";
         </label>
         <label class="block text-sm mt-4">
           <span class="text-gray-700 dark:text-gray-400">Price per night</span>
-          <input value="<?= (isset($room)) ? $room["price"] : ""; ?>" name="price" type="price" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="500" />
+          <input value="<?= (isset($room)) ? $room["price"] : ""; ?>" name="price" type="number" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="500" />
         </label>
         <label class="block text-sm mt-4">
           <input <?= (isset($room)) ? (($room["is_sea_view"] == 1) ? "checked" : "") : ""; ?> name="is_sea_view" type="checkbox" class="form-checkbox " />

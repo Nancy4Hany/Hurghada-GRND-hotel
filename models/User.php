@@ -4,7 +4,7 @@ require_once dirname(__FILE__) . '/Model.php';
 class User extends Model{
     protected $table = "users";
     protected $hidden = ["password"];
-
+    public $data;
     public static function all(){
         $instance = new self();
         $table = $instance->table;

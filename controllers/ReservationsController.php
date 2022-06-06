@@ -1,6 +1,8 @@
 <?php
 require_once dirname(__FILE__) . '/../classes/DB.php';
-require_once dirname(__FILE__) . '/../models/Reservation.php';
+require_once dirname(__FILE__) . '/../models/ReservationRoom.php';
+require_once dirname(__FILE__).'/../models/Room.php';
+require_once dirname(__FILE__).'/../models/Reservation.php';
 
 class ReservationsController
 {
@@ -22,6 +24,8 @@ class ReservationsController
         $user_reservations = Reservation::find($_GET["id"]);
         return($user_reservations);
     }
+
+  
 }
 
 

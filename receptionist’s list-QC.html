@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Receptionist's List-QC</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src='main.js'></script>
+</head>
+<body class="max-w-6xl mx-auto">
+    <img src="images/logo.png" alt="" width="120px" height="80px">
+    <p class="container mx-auto flex px-5 py-15 items-center justify-center flex-col font-bold text-5xl text-indigo-400 italic shadow-inheritg ">Receptionist List</p>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="p-4">
+            <label for="table-search" class="sr-only">Search</label>
+            <div class="relative mt-1">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                </div>
+                <input type="text" id="table-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
+            </div>
+        </div>
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
+            <thead class="text-sm text-gray-400 text-pink-700 text-center ">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Occupied
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Room ID
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Position
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Type
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Date of Check In
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Date of Check Out
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        <span class="sr-only">Edit</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        10A
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Single Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $2999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        20/11/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        27/11/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-2" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        20B
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Double Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        20A
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Single Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        20C
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        King Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $6000
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        11D
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        First-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Queen Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $6000
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        06/3/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        10/3/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        52D
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Second-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Swite 
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $10000
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        50A
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Single Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        06/4/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        08/4/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        40B
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Double Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $6999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        08/7/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        09/7/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        62D
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Second-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Swite
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $10000
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        10/5/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        15/5/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        40A
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Single Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        06//01/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        12/01/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        61A
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Single Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        10/02/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        15/02/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 dark:border-gray-700">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        61B
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Double Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Waiting
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 ">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        10A
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        First-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Single Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        05/03/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        10/03/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        82D
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Second-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Swite
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $10000
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        01/08/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        09/08/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="w-4 p-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
+                        90A
+                    </th>
+                    <td class="px-6 py-4 text-center">
+                        Ground-Floor
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        Single Bedroom
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        $4999
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        22/05/2022
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        30/05/2022
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
