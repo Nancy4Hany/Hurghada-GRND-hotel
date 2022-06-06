@@ -6,6 +6,7 @@ class Reservation extends Model
     protected $table = "reservations";
     public $data;
 
+
     public static function all()
     {
         $instance = new self();

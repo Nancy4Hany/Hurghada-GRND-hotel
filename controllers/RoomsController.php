@@ -1,6 +1,8 @@
 <?php
 require_once dirname(__FILE__) . '/../models/Room.php';
 require_once dirname(__FILE__) . '/../models/RoomPhoto.php';
+require_once dirname(__FILE__) . '/../models/Reservation.php';
+require_once dirname(__FILE__) . '/../models/ReservationRoom.php';
 
 class RoomsController{
     public function add_room()
@@ -68,4 +70,20 @@ class RoomsController{
 
         
     }
+    public function find_available()
+    {
+
+        if (isset($_POST["submit"])) {
+            //FOR TESTING
+
+            $start_date = $_POST['start_date'];
+            $end_date = $_POST['end_date'];
+            $Room = new Room();
+            $Room->data["start_date"] = $start_date;
+            $Room->data["end_date"] = $end_date;
+        }
+        return false;
+    }
+
+  
 }
