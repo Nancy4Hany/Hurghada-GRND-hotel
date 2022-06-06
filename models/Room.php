@@ -1,6 +1,8 @@
 <?php
 require_once dirname(__FILE__) . '/Model.php';
 
+
+
 class Room extends Model{
     protected $table = "rooms";
     public $data;
@@ -16,7 +18,6 @@ class Room extends Model{
         }, $values);
         return $values;
     }
-    
     
 
 }

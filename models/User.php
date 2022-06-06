@@ -21,7 +21,10 @@ class User extends Model{
         return DB::query("SELECT u.*, t.name as user_type_name FROM $table u, user_types t WHERE t.id = u.user_type_id AND t.name='receptionist'");
     }
 
-
+    public function getType(){
+        $query = "SELECT t.name from users u , user_types t where u.user_type_id=t.id AND u.id=:id";
+        return DB::query($query,array(":id"=>$this->data['id']))[0]["name"];
+    }
 
 
 }

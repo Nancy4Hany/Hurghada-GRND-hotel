@@ -1,3 +1,9 @@
+<!--  
+ msh 3wzenha static , 3la 7sb el id el el user yd5lo 3n tre2 name w email w blablabla
+ require_once dirname(__FILE__). "/../../models/User.php";
+ $user = new User();
+ $user->data["id"] = 3; 
+ $user_type = $user->getType(); -->
 <!DOCTYPE html>
 <html :class="{ 'dark': dark }" x-data="data()" lang="en">
 

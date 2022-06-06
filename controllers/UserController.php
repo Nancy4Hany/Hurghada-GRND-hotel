@@ -19,13 +19,23 @@ class UserController{
             $password = "123456";
             // $password = $_POST['password'];
 
+
+            $image = $_FILES['image'];
+            $target_directory = dirname(__FILE__).'/../uploads';
+            $ext = @end((explode(".", $image["name"])));
+            $file_name = time() . ".$ext";
+            $target_file = $target_directory . '/'. $file_name;
+            move_uploaded_file($image["temp_name"], $target_file);
+            $image = $file_name;
+
+
+
             $national_id = $_FILES['national_id'];
             $target_directory = dirname(__FILE__).'/../uploads';
             $ext = @end((explode(".", $national_id["name"])));
             $file_name = time() . ".$ext";
             $target_file = $target_directory . '/'. $file_name;
             move_uploaded_file($national_id["tmp_name"], $target_file);
-
             $national_id = $file_name;
             $birth_date = date('Y-m-d',strtotime($_POST['birth_date']));
             // $user_type_id = $_POST['user_type_id'];
