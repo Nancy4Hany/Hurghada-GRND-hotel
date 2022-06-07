@@ -44,6 +44,8 @@ class Room extends Model{
         }, $values);
         return $values;
     }
+
+    // function to find available rooms 
     public static function find_available($start_date, $end_date)
     {
         $instance = new static();
@@ -56,7 +58,7 @@ class Room extends Model{
             }, ARRAY_FILTER_USE_KEY);
         }, $rooms);
         
-        return $rooms;
+        return $rooms; // returns rooms available  when the function gets called
     }
     
 

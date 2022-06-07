@@ -161,7 +161,6 @@ module.exports = {
       },
     },
     extend: {
-<<<<<<< HEAD
       maxHeight: {
         '0': '0',
         xl: '36rem',
@@ -171,8 +170,6 @@ module.exports = {
       },
     },
     extend: {
-=======
->>>>>>> 5bd3a9056f32c9bd37ea2e9d6cc12d62062e05bf
       fontFamily :
       {sans : ['Poppins','sans-serif' ,'lato']
     },
@@ -188,7 +185,6 @@ module.exports = {
    
     }
     }
-<<<<<<< HEAD
   },
   variants: {
     backgroundColor: [
@@ -216,8 +212,6 @@ module.exports = {
     borderColor: ['focus', 'hover', 'dark', 'dark:focus', 'dark:hover'],
     divideColor: ['dark'],
     boxShadow: ['focus', 'dark:focus'],
-=======
->>>>>>> 5bd3a9056f32c9bd37ea2e9d6cc12d62062e05bf
   },
   plugins: [
   ],
