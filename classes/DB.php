@@ -15,7 +15,7 @@ class DB{
             
             $statement = self::connect()->prepare($query);
             $statement->execute($params);
-
+            $query = trim($query);
             if(explode(' ', $query)[0] == 'SELECT'){
               $data = $statement->fetchAll();
               return $data;

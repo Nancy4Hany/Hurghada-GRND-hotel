@@ -3,9 +3,8 @@
 require_once "controllers/ReservationsController.php";
 require_once "controllers/RoomsController.php";
 
-
 $controller = new RoomsController();
-$result = $controller->find_available();
+$rooms = $controller->find_available(); // to find available rooms
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,16 +23,8 @@ $result = $controller->find_available();
         </a>
     </header>
     <div class="container">
-        <h2 class="font-weight-bolder">Regisration Form </h2>
-        <?php // display message when registration is success
-        if ($result) {
-        ?>
-            <p></p>registration added successfully</p>
-        <?php
-        }
-        ?>
-
-        <form action="#" method="POST">
+        <h2 class="font-weight-bolder">Find Rooms</h2>
+        <form method="POST">
 
             <div class="first form">
                 <div class="font-weight-bold">Personal details</div>
@@ -62,6 +53,20 @@ $result = $controller->find_available();
     </div>
     </form>
     </div>
+   <!-- here to display available rooms  -->
+    <?php
+        if($rooms)
+        foreach($rooms as $room){
+
+            ?>
+            <div>
+                <!-- returns the name of the available room column according to the function -->
+                     <?= $room["name"];?> 
+            </div>
+
+            <?php
+        }
+    ?>
 </body>
 
 </html>
