@@ -28,7 +28,7 @@ class UserController{
 
             $national_id = $file_name;
             $birth_date = date('Y-m-d',strtotime($_POST['birth_date']));
-            // $user_type_id = $_POST['user_type_id'];
+            $user_type_id = $_POST['user_type_id'];
             $user_type_id = 1;
             if(isset($_POST['id'])){
                 $user = User::find($_POST["id"]);
@@ -44,6 +44,43 @@ class UserController{
             
             if($user->save()){
                 return true;
+            }
+        }
+        return false;
+    }
+    public function login(){
+        if(isset($_SESSION['id'])){
+            $user = User::find($_SESSION['id']);
+            $user_type = $user->getType();
+            if ($user_type == "Receptionist" || $user_type == "Quality Control") {
+                header('Location: ./dashboard');
+                exit();
+            } else {
+                header('Location: ./');
+                exit();
+            }
+        }
+
+        if(isset($_POST['login'])){
+            if(!isset($_POST['email']) && !isset($_POST['password'])){
+                return "Incorrect email or password";
+            }
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user_id = User::login($email,$password);
+            if($user_id){
+                $user = User::find($user_id);
+                $user_type = $user->getType();
+                $_SESSION["id"] = $user_id;
+                if($user_type == "Receptionist" || $user_type == "Quality Control"){
+                    header('Location: ./dashboard');
+                    exit();
+                }else{
+                    header('Location: ./');
+                    exit();
+                }
+            }else{
+                return "Incorrect email or password";
             }
         }
         return false;
