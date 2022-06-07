@@ -1,4 +1,11 @@
 {
+  "scripts": {
+    "watch": "npx tailwindcss -i ./src/css/app.css -o ./layout/css/app.css --watch",
+    "development": "npx tailwindcss -i ./src/css/app.css -o ./layout/css/app.css --dev",
+    "dev": "npm run development",
+    "prod": "npx tailwindcss -i ./src/css/app.css -o ./layout/css/app.css --prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "tailwindcss": "^3.0.24"
   }

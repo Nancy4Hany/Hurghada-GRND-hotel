@@ -1,5 +1,30 @@
 <!DOCTYPE html > 
+<?php
+include "../models/User.php";
+include "../controllers/UserController.php";
+$controller = new UserController();
+$registered = $controller->register();
+
+
+?>
 <html lang = "en" >
+       <?php
+    if ($registered === true) {
+    ?>
+      <div class="py-2 px-4 bg-green-200 text-green-600">User has been added!</div>
+    <?php
+    } else if ($registered === false) {
+    } else {
+
+    ?>
+      <div class="py-2 px-4 bg-red-200 text-red-600">
+        <?php
+        echo nl2br($registered);
+        ?>
+      </div>
+    <?php
+    }
+    ?>
     <style>
         .bg{
  background-color: chocolate;
@@ -30,7 +55,7 @@ background-image: linear-gradient(315deg, chocolate 100%);
                     <div class="fields">
                         <div class="bg-grey-200 rounded w-full text-grey-700 focus:outline-none border-b-4 border-gray-300 focus: border-purple-600 transition-duration-500 px-3 pb-3"">
                             <label>Full Name</label>
-                            <input type="text" placeholder="Enter your name" required>
+                            <input type="text"  name ="name" placeholder="Enter your name" required>
                         </div>
 
                         <div class="bg-grey-200 rounded w-full text-grey-700 focus:outline-none border-b-4 border-gray-300 focus: border-purple-600 transition-duration-500 px-3 pb-3"">
@@ -40,7 +65,7 @@ background-image: linear-gradient(315deg, chocolate 100%);
 
                         <div class="bg-grey-200 rounded w-full text-grey-700 focus:outline-none border-b-4 border-gray-300 focus: border-purple-600 transition-duration-500 px-3 pb-3"">
                             <label>Email</label>
-                            <input type="text" placeholder="Enter your email" required>
+                            <input type="text" name="email" placeholder="Enter your email" required>
                         </div>
 
                         <div class="bg-grey-200 rounded w-full text-grey-700 focus:outline-none border-b-4 border-gray-300 focus: border-purple-600 transition-duration-500 px-3 pb-3"">
@@ -114,7 +139,7 @@ background-image: linear-gradient(315deg, chocolate 100%);
                         </div>
 
                     </div>
- <button class="bg-purple-600 hover:bg-purple-700  text-white font-bold py-2 rounded shadow-lg hover: shadow-2xl transition-duration-200"type = "submit" >submit </button>
+ <button class="bg-purple-600 hover:bg-purple-700  text-white font-bold py-2 rounded shadow-lg hover: shadow-2xl transition-duration-200" name="submit" type = "submit" >submit </button>
                     </div>
                 </div> 
             </div>
