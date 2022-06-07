@@ -1,10 +1,11 @@
 
 <?php
 // Send a raw HTTP header
-session_start();
+
 class DB{
 
     private static function connect(){
+    
         $pdo = new PDO('mysql:host=localhost;dbname=hotel-database;charset=utf8;collation=utf8_unicode_ci', 'root', '');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
