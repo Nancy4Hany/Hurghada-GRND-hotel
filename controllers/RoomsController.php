@@ -64,22 +64,12 @@ class RoomsController{
     }
 public function room_type()
 {
-    if(isset($_POST["submit"]))
-    {
-    $_SESSION['id'] = 1;//for testing
-    $user_id=$_SESSION['id'];
-
-    $name=$_POST['rooms'];
-
-     $RoomType = new RoomType(); 
-     $RoomType->data["id"]= $user_id;
-     $RoomType->data["name"]=$name;  
-
-     if($RoomType->save())
-     {
-         return true ; 
-     }return false;
+    if(isset($_GET['rooms'])){
+        $type=$_GET['rooms'];
+        $rooms = Room::allByType($type);
+        return $rooms;
     }
+    return false;
 }
     public function delete_room()
     {

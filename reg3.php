@@ -1,8 +1,11 @@
  <?php
  require_once dirname(__FILE__) . '/controllers/RoomsController.php'; 
+ require_once dirname(__FILE__) . '/models/RoomType.php'; 
 
  $controller=new RoomsController();
- $result=$controller->room_type();
+ $rooms = $controller->room_type();
+
+ $types = RoomType::all();
  ?>
  
  <html>
@@ -22,6 +25,8 @@
     <title>Regisration Form 3</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="layout/css/app.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -40,27 +45,45 @@
                 
                 <select required id="rooms" name="rooms">
                     <option disabled selected>Select room type</option>
-                    <option value="Single">Single </option>
-                    <option value="Double">Double </option>
-                    <option value="Triple"> Triple</option>
-                    <option value="Twin">Twin</option>
-                    <option value="Suite"> Suite</option>
-                    <option value="Cabana">Cabana</option>
+                    <?php
+                    foreach($types as $type){
+                        ?>
+                        <option value="<?=$type["id"]; ?>"><?=$type["name"];?></option>
+                        <?php
+                    }
+                    ?>
                     
                 </select>
             </div>
-            <div class="container" >
-                <image src="single(1).jpg" alt="Single" width="200" height="100" ></image>
-                <image src="teriple.jpg" alt="teriple" width="200" height="100"></image>
+            <div class="flex p-2" >
+                <div class="bg-white text-center font-bold">
+                    <img src="single(1).jpg" alt="Single" width="200" height="100" />
+                    Single
+                </div>
+                <div class="bg-white text-center font-bold">
+                    <img src="teriple.jpg" alt="teriple" width="200" height="100"/>
+                    Triple
+                </div>
             </div>
-            <div class="container">
-            
-                <image src="double-double-room.jpg"alt="Double" width="200" height="100" name = "Double" ></image>
-            <image src="queen.jpg" alt="queen" width="200" height="100"></image>
+            <div class="flex p-2">
+             <div class="bg-white text-center font-bold">
+                <img src="double-double-room.jpg"alt="Double" width="200" height="100" name = "Double" />
+                Double 
+             </div>
+             
+                         <div class="bg-white text-center font-bold">
+            <img src="queen.jpg" alt="queen" width="200" height="100"/>
+            Queen 
             </div>
-                    <div class="container">
-              <image src="cabana.jpg" alt="cabana" width="200" height="100"></image>
-                <image src="suite2.jpg" alt="suite" width="200" height="100"></image>
+                    
+                         <div class="bg-white text-center font-bold">
+              <img src="cabana.jpg" alt="cabana" width="200" height="100"/>
+              cabana</div>
+
+                         <div class="bg-white text-center font-bold">
+                <img src="suite2.jpg" alt="suite" width="200" height="100"/>
+                Suite 
+                         </div>
                 </div>
 
             </div>
@@ -69,7 +92,13 @@
             </div>
             </form>
             <?php
+                if($rooms)
+                    foreach($rooms as $room){
+                        ?>
 
+                        <p><?= $room["name"]; ?> <button>Pick</button> </p>                        
+                        <?php
+                    }
             ?>
             </body>
 </html>
