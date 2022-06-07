@@ -1,73 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php session_start(); ?>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="./layout/css/app.css">
-</head>
+<?php
+include('controllers/UserController.php');
+$controller = new UserController();
+$login_results = $controller->login();
+include('includes/head.php');
+?>
 
-<style>
-    .row{
-        padding-top: 10%;
-        width: 5%;
-    }
-    
-</style>
-<body>
-    <?php
-    include 'connect.php';
-      if(isset($_POST['submit'])) {
-          $email = $_POST['email'];
-          $pass = $_POST['password'];
-          $sql = "select * from users where email = '$email' and password = '$pass';";
-          $result = mysqli_query($con,$sql);
-          $rowcount = mysqli_num_rows($result);
-          if($result){
-              if($rowcount > 0){
+<body class="img h-full bg-no-repeat bg-cover" style="background-image: url(images/grandhotelnight.jpg);">
+	<div class="flex w-full  justify-center items-center h-full">
+		<section class="w-full">
+			<div class=" text-white p-5 bg-black " style="--tw-bg-opacity:0.6">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<h2 class="text-4xl">Login Page</h2>
+					</div>
+				</div>
+				<?php
+				if ($login_results) {
+				?>
+					<p class="bg-red-200 text-red-600 px-8 py-2">
 
-                  $row = mysqli_fetch_assoc($result);
-                  $_SESSION['id'] = $row['id'];
-                  $_SESSION['user_type_id'] = $row['user_type_id'];
-                  $_SESSION['email'] = $row['email'];
-                  $_SESSION['password'] = $row['password'];
-                  $_SESSION['name'] = $row['name'];
-                  $_SESSION['national_id'] = $row['national_id'];
-                  $_SESSION['birth_date'] = $row['birth_date'];
-                  header('location:QC.html');
-                }else{
-                    echo 'invalid email or password';
-                }
+						<?= $login_results;?>
+					</p>
+				<?php
+				}
+				?>
+				<div class="row justify-content-center">
+					<div class="col-md-6 col-lg-4">
+						<div class="login-wrap p-0">
+							<form method="POST" class="signin-form">
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Username" name="email" required>
+								</div>
+								<div class="form-group flex">
+									<input id="password-field" type="password" class="w-full rounded-l-md px-4 text-black" name="password" placeholder="Password" required>
+									<span toggle="#password-field" class="fa fa-eye field-icon text-xl p-2 rounded-r-md cursor-pointer bg-blue-500 toggle-password"></span>
+								</div>
+								<div class="form-group">
+									<button type="submit" name="login" class="form-control btn btn-primary submit px-3">Sign In</button>
+								</div>
+								<a href="#">
+									<h3 class="mb-4 text-center text-xl">Create account</h3>
+								</a>
 
+								<div class="form-group d-md-flex">
+									<div class="w-50">
+										<label class="checkbox-wrap checkbox-primary">Remember Me
+											<input type="checkbox" checked>
+											<span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="#" style="color: #fff">Forgot Password</a>
+									</div>
+								</div>
+							</form>
 
-
-          }else{
-              echo 'database error';
-          }
-      } 
-    ?>
-    <div class="row">
-<div class = 'col-md-6 shadow p-3 mb-5 bg-white rounded' >
-<form action="" method = 'post'>
-
-    <div class = "form-group">
-        <label for="username">Email:</label>
-        <input type="text" name = 'email' placeholder = 'Email:' id = 'Email' value = 'Email' required>
-    </div>
-    <div class = "form-group">
-        <label for="password">Password:</label>
-        <input type="password" name = 'password' placeholder = 'password' id = 'password' required>
-    </div>
-    <div class = "form-group">
-        <input type="submit" name = 'submit' id = 'password'>
-    </div>
-</div>
-</div>
-</div>
-</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="layout/js/jquery.min.js"></script>
+	<script src="layout/js/popper.js"></script>
+	<script src="layout/js/bootstrap.min.js"></script>
+	<script src="layout/js/main.js"></script>
+	<script>
+		var images = [
+			"grandhotelnight.jpg",
+			"Hotel-Diplomat-Stockholm.jpg",
+			"background-10.jpg"
+		]
+		var image = images[Math.floor(Math.random() * images.length)];
+		document.body.style.backgroundImage = "url(images/" + image + ")";
+	</script>
 </body>
+
+</html>
