@@ -18,6 +18,16 @@ class UserController{
             // if (!isset($_POST['name']) || empty($_POST['name'])) {
             //     $validation_message .= "Please enter a valid name\n";
             // }
+<<<<<<< HEAD
+        //    if (User::findbyemail($_GET['email'])) {
+        //         $validation_message = "user already exist\n";
+        //     }
+          
+        
+            // if ($validation_message != "") {
+            //     return $validation_message;
+            // }
+=======
             //    if (User::findbyemail($_GET['email'])) {
             //         $validation_message = "user already exist\n";
             //     }
@@ -27,6 +37,7 @@ class UserController{
             //     return $validation_message;
             // }
            
+>>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
             $name = $_POST['name'];
             $email = $_POST['email'];
             $nationality = $_POST['nationality'];
@@ -43,21 +54,35 @@ class UserController{
 
 
             // $user_type_id = $_POST['user_type_id'];
+<<<<<<< HEAD
+            // $user_type_id = 1;
+=======
            
+>>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
             // if (isset($_POST['id'])) {
             //    x` $user = User::find($_POST["id"]);
             // } else {
             //     $user = new User();
             
             $user= new user();
+<<<<<<< HEAD
+=======
             $user->data["user_type_id"] = 1; // user type for guests
+>>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
             $user->data["name"] = $name;
             $user->data["email"] = $email;
             $user->data["national_id"] = $national_id;
             $user->data["birth_date"] = $birth_date;
+<<<<<<< HEAD
+            $user->data["user_type_id"] = 1;
+            $user->data["nationality"] = $nationality;
+            $user->data["address"] = $address;
+            $user->data["phone"] = $mobile_number;
+=======
             // $user->data["nationality"] = $nationality;
             // $user->data["address"] = $address;
             // $user->data["phone"] = $mobile_number;
+>>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
         
         if($user->save()){
             return true;
