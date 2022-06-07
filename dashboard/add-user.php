@@ -5,10 +5,8 @@ include "../controllers/UserController.php";
 $controller = new UserController();
 $added = $controller->add_user();
 // $user_types = new UserType();
-if (isset($_GET['id'])) {
-  $user = User::find($_GET['id']);
-  $user = $user->data;
-}
+
+
 
 include "../includes/dashboard/header.php";
 ?>

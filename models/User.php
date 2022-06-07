@@ -4,7 +4,7 @@ require_once dirname(__FILE__) . '/Model.php';
 class User extends Model{
     protected $table = "users";
     protected $hidden = ["password"];
-
+    public $data;
     public static function all(){
         $instance = new self();
         $table = $instance->table;
@@ -22,6 +22,20 @@ class User extends Model{
     }
 
 
-
-
+  public static function findbyemail ($email){
+        $instance = new static();
+        $table = $instance->table;
+        $data = DB::query("SELECT * FROM $table WHERE email=:email", array(':email' => $email));
+        
+        if($data)
+        {
+            $instance->data = $data[0];
+            $instance->data = array_filter($instance->data, function($key) use ($instance) { 
+                return (gettype($key) != 'integer' && !in_array($key, $instance->hidden) ); 
+            }, ARRAY_FILTER_USE_KEY);
+        }else{
+            return false;
+        }
+        return $instance;
+    }
 }
