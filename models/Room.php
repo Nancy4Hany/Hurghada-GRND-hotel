@@ -44,6 +44,7 @@ class Room extends Model{
         }, $values);
         return $values;
     }
+<<<<<<< HEAD
 
     // function to find available rooms 
     public static function find_available($start_date, $end_date)
@@ -61,5 +62,17 @@ class Room extends Model{
         return $rooms; // returns rooms available  when the function gets called
     }
     
+=======
+    
+    public  static function allByType($type){
+        $instance = new self();
+        $table = $instance->table;
+        $values = DB::query("SELECT r.*, t.name as room_type_name FROM $table r, room_types t WHERE t.id = r.room_type_id AND t.id=:id",array(':id'=>$type));
+        $values = array_map(function($array){
+            return array_filter($array, function($key) { return gettype($key) != "integer"; }, ARRAY_FILTER_USE_KEY);
+        }, $values);
+        return $values;
+    }
+>>>>>>> 996f89fc8bd0ac9b491d9e7e84006fb34c15600b
 
 }
