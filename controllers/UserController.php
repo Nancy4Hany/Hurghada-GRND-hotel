@@ -92,7 +92,7 @@ class UserController{
 
             $national_id = $file_name;
             $birth_date = date('Y-m-d',strtotime($_POST['birth_date']));
-            // $user_type_id = $_POST['user_type_id'];
+            $user_type_id = $_POST['user_type_id'];
             $user_type_id = 1;
             if(isset($_POST['id'])){
                 $user = User::find($_POST["id"]);
