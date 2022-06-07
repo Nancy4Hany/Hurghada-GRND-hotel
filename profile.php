@@ -28,30 +28,6 @@ $user = $controller->showData();
         <img class="object-cover object-center w-full h-full rounded-full" src = "blank-profile-picture.png" alt="assda">
         </div>
         <div class = "text-xl leading-normal indent-5">
-            <?php
-                // $sql = "select * from users where id = '1'";//id lazem yet8ayar
-                // $result = mysqli_query($con,$sql);
-                // $row = mysqli_fetch_assoc($result);
-
-                // if($result)
-                // {
-                //     $name = $row['name'];
-                //     $email = $row['email'];
-                //     $birth = $row['birth_date'];
-                //     $nationalid = $row['national_id'];
-                //     $id = $row['id'];
-                //     echo "<h5>Name: $name</h5>
-                //     <h5>Email: $email</h5>
-                //     <h5>Birth Date: $birth</h5>
-                //     <h5>National ID: $nationalid</h5>
-                //     <h5>ID:$id</h5>";
-
-                // }
-
-
-
-                
-            ?>
             <h5>Name: <?= $user->data["name"]?></h5>
             <h5>Email: <?= $user->data["email"]?></h5>
             <h5>Birth Date: <?= $user->data["birth_date"]?></h5>
