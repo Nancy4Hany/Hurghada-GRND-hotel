@@ -66,7 +66,7 @@ $reservation = $controller->showDetails();
             $price = 0;
             foreach($reservation->data["rooms"] as $room){
                 $guests += $room["quantity_of_guests"];
-                $_room = Room::find($room["room_id"]);
+                $_room = Room::find($room["id"]);
                 $price += $_room->data["price"];
             }
            
