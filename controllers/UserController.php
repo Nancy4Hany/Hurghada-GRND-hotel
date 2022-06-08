@@ -56,7 +56,7 @@ class UserController{
             $user->data["national_id"] = $national_id;
             $user->data["birth_date"] = $birth_date;
             $user->data["user_type_id"] = 1;
-            $user->data["nationality"] = $nationality;
+            // $user->data["nationality"] = $nationality;
             $user->data["address"] = $address;
             $user->data["phone"] = $mobile_number;
             // $user->data["nationality"] = $nationality;

@@ -47,7 +47,22 @@ class Room extends Model{
         return $values;
     }
 
-    // function to find available rooms 
+    public static function find($id){
+        $instance = new self();
+        $table = $instance->table;
+        $data = DB::query("SELECT r.*, t.name as room_type_name FROM $table r, room_types t WHERE t.id = r.room_type_id AND r.id = :id",array(":id"=>$id));
+        if($data){
+            $instance->data = $data[0];
+            $instance->data = array_filter($instance->data, function($key) use ($instance) { 
+                return (gettype($key) != 'integer' && !in_array($key, $instance->hidden) ); 
+            }, ARRAY_FILTER_USE_KEY);
+        }else{
+            return false;
+        }
+        return $instance;
+    }
+
+
     public static function find_available($start_date, $end_date)
     {
         $instance = new static();
@@ -60,7 +75,7 @@ class Room extends Model{
             }, ARRAY_FILTER_USE_KEY);
         }, $rooms);
         
-        return $rooms; // returns rooms available  when the function gets called
+        return $rooms;
     }
     
 
