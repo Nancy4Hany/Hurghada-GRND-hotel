@@ -36,18 +36,26 @@ include "models/Room.php";
 
         <!-- side navbar -->
         <div class = "sidenav" id = "sidenav">
+           
+            
             <span class = "cancel-btn" id = "cancel-btn">
                 <i class = "fas fa-times"></i>
             </span>
-
+            <br>
+            <br>
+            <div class = "w-50 h-50" style="align-content: center;">
+            <img  class="img-fluid rounded" src="images/bestprofilepic.jpg" alt="profile" >
+            </div>
             <ul class = "navbar">
-                <li><a href = "#header">home</a></li>
-                <li><a href = "#services">services</a></li>
-                <li><a href = "#rooms">rooms</a></li>
-                <li><a href = "#customers">customers</a></li>
+                <li><a href = "#header">Home</a></li>
+                <li><a href = "#services">Services</a></li>
+                <li><a href = "#rooms">Rooms</a></li>
+                <li><a href = "#customers">Customers</a></li>
+                <li><a href = "#customers">Reservation in progress</a></li>
+                <li><a href = "#customers">Done reservation</a></li>
             </ul>
-            <button class = "btn sign-up">sign up</button>
-            <button class = "btn log-in">log in</button>
+            
+            <button class = "btn log-in">log out</button>
         </div>
         <!-- end of side navbar -->
 

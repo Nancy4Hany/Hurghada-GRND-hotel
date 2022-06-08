@@ -138,6 +138,46 @@ class UserController{
             }
         }
     }
+    //loji pulled
+
+    // public function login(){
+    //     if(isset($_SESSION['id'])){
+    //         $user = User::find($_SESSION['id']);
+    //         $user_type = $user->getType();
+    //         if ($user_type == "Receptionist" || $user_type == "Quality Control") {
+    //             header('Location: ./dashboard');
+    //             exit();
+    //         } else {
+    //             header('Location: ./');
+    //             exit();
+    //         }
+    //     }
+
+    //     if(isset($_POST['login'])){
+    //         if(!isset($_POST['email']) && !isset($_POST['password'])){
+    //             return "Incorrect email or password";
+    //         }
+    //         $email = $_POST['email'];
+    //         $password = $_POST['password'];
+    //         $user_id = User::login($email,$password);
+    //         if($user_id){
+    //             $user = User::find($user_id);
+    //             $user_type = $user->getType();
+    //             $_SESSION["id"] = $user_id;
+    //             if($user_type == "Receptionist" || $user_type == "Quality Control"){
+    //                 header('Location: ./dashboard');
+    //                 exit();
+    //             }else{
+    //                 header('Location: ./');
+    //                 exit();
+    //             }
+    //         }else{
+    //             return "Incorrect email or password";
+    //         }
+    //     }
+    //     return false;
+    // }
+
 
     public function disable_rec_acc()
     {
