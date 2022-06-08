@@ -7,7 +7,6 @@ class UserController{
     if (isset($_POST["submit"])){
 
 
-
     }
 
     }
@@ -18,16 +17,6 @@ class UserController{
             // if (!isset($_POST['name']) || empty($_POST['name'])) {
             //     $validation_message .= "Please enter a valid name\n";
             // }
-<<<<<<< HEAD
-        //    if (User::findbyemail($_GET['email'])) {
-        //         $validation_message = "user already exist\n";
-        //     }
-          
-        
-            // if ($validation_message != "") {
-            //     return $validation_message;
-            // }
-=======
             //    if (User::findbyemail($_GET['email'])) {
             //         $validation_message = "user already exist\n";
             //     }
@@ -37,7 +26,6 @@ class UserController{
             //     return $validation_message;
             // }
            
->>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
             $name = $_POST['name'];
             $email = $_POST['email'];
             $nationality = $_POST['nationality'];
@@ -54,35 +42,21 @@ class UserController{
 
 
             // $user_type_id = $_POST['user_type_id'];
-<<<<<<< HEAD
-            // $user_type_id = 1;
-=======
            
->>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
             // if (isset($_POST['id'])) {
             //    x` $user = User::find($_POST["id"]);
             // } else {
             //     $user = new User();
             
             $user= new user();
-<<<<<<< HEAD
-=======
             $user->data["user_type_id"] = 1; // user type for guests
->>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
             $user->data["name"] = $name;
             $user->data["email"] = $email;
             $user->data["national_id"] = $national_id;
             $user->data["birth_date"] = $birth_date;
-<<<<<<< HEAD
-            $user->data["user_type_id"] = 1;
-            $user->data["nationality"] = $nationality;
-            $user->data["address"] = $address;
-            $user->data["phone"] = $mobile_number;
-=======
             // $user->data["nationality"] = $nationality;
             // $user->data["address"] = $address;
             // $user->data["phone"] = $mobile_number;
->>>>>>> 73d07169b9a36acb11c7c01c0e726c71c67b8040
         
         if($user->save()){
             return true;
@@ -138,26 +112,46 @@ class UserController{
         }
         return false;
     }
-//    public function register()
-//     {
-//         if (isset($_POST["submit"])) {
-//             $validation_message = "";
-//             if(!isset($_POST['name']) || empty($_POST['name'])){
-//                 $validation_message .= "Please enter a valid name\n";
-//             }
-//               if (User::findbyemail($_GET['email']))
-//             {
-//                $validation_message = "user already exist\n" ; 
-//             }
-//             if($validation_message != ""){
-//                 return $validation_message;
-//             }
-//             $name = $_POST['name'];
-//             $email = $_POST['email'];
-//             $password = "123456";
-//             $nationality = $_POST['nationality']; 
-//               $address = $_POST['address']; 
-//             // $password = $_POST['password'];
+    //loji pulled
+
+    // public function login(){
+    //     if(isset($_SESSION['id'])){
+    //         $user = User::find($_SESSION['id']);
+    //         $user_type = $user->getType();
+    //         if ($user_type == "Receptionist" || $user_type == "Quality Control") {
+    //             header('Location: ./dashboard');
+    //             exit();
+    //         } else {
+    //             header('Location: ./');
+    //             exit();
+    //         }
+    //     }
+
+    //     if(isset($_POST['login'])){
+    //         if(!isset($_POST['email']) && !isset($_POST['password'])){
+    //             return "Incorrect email or password";
+    //         }
+    //         $email = $_POST['email'];
+    //         $password = $_POST['password'];
+    //         $user_id = User::login($email,$password);
+    //         if($user_id){
+    //             $user = User::find($user_id);
+    //             $user_type = $user->getType();
+    //             $_SESSION["id"] = $user_id;
+    //             if($user_type == "Receptionist" || $user_type == "Quality Control"){
+    //                 header('Location: ./dashboard');
+    //                 exit();
+    //             }else{
+    //                 header('Location: ./');
+    //                 exit();
+    //             }
+    //         }else{
+    //             return "Incorrect email or password";
+    //         }
+    //     }
+    //     return false;
+    // }
+
 
 //             $national_id = $_FILES['national_id'];
 //             $target_directory = dirname(__FILE__).'/../uploads';

@@ -19,7 +19,7 @@ include "models/Room.php";
         <header class = "header" id = "header">
             <div class = "head-top">
                 <div class = "site-name">
-                    <span>GEEKPROBIN</span>
+                    <span>Grand Hotel</span>
                 </div>
                 <div class = "site-nav">
                     <span id = "nav-btn">MENU <i class = "fas fa-bars"></i></span>
@@ -39,15 +39,21 @@ include "models/Room.php";
             <span class = "cancel-btn" id = "cancel-btn">
                 <i class = "fas fa-times"></i>
             </span>
-
+            <br>
+            <br>
+            <div class = "w-50 h-50" style="align-content: center;">
+            <img  class="img-fluid rounded" src="images/bestprofilepic.jpg" alt="profile" >
+            </div>
             <ul class = "navbar">
-                <li><a href = "#header">home</a></li>
-                <li><a href = "#services">services</a></li>
-                <li><a href = "#rooms">rooms</a></li>
-                <li><a href = "#customers">customers</a></li>
+                <li><a href = "#header">Home</a></li>
+                <li><a href = "#services">Services</a></li>
+                <li><a href = "#rooms">Rooms</a></li>
+                <li><a href = "#customers">Customers</a></li>
+                <li><a href = "#customers">Reservation in progress</a></li>
+                <li><a href = "#customers">Done reservation</a></li>
             </ul>
-            <button class = "btn sign-up">sign up</button>
-            <button class = "btn log-in">log in</button>
+            
+            <button class = "btn log-in">log out</button>
         </div>
         <!-- end of side navbar -->
 
