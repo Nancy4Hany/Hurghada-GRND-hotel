@@ -1,7 +1,7 @@
 <?php
-include "../includes/dashboard/header.php";
 include "../models/Reservation.php";
 $reservations = Reservation::all();
+include "../includes/dashboard/header.php";
 ?>
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">
@@ -97,7 +97,7 @@ $reservations = Reservation::all();
                       </button>
                     </a>
                     <a href="view-reservation.php?id=<?= $reservation["id"]; ?>">
-                      <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Delete">
+                      <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
                         <i class="las la-eye text-xl"></i>
                       </button>
                     </a>

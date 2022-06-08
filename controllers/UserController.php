@@ -89,7 +89,7 @@ class UserController{
             $ext = @end((explode(".", $image["name"])));
             $file_name = time() . ".$ext";
             $target_file = $target_directory . '/'. $file_name;
-            move_uploaded_file($image["temp_name"], $target_file);
+            move_uploaded_file($image["tmp_name"], $target_file);
             $image = $file_name;
 
 
@@ -115,6 +115,7 @@ class UserController{
             $user->data["national_id"] = $national_id;
             $user->data["birth_date"] = $birth_date;
             $user->data["user_type_id"] = $user_type_id;
+            $user->data["image"] = $image;
             
             if($user->save()){
                 return true;
@@ -122,6 +123,59 @@ class UserController{
         }
         return false;
     }
+
+
+    public function promote_to_qc(){
+        if(isset($_POST['promote_id'])){
+            $user = User::find($_POST['promote_id']);
+            $user->data['user_type_id'] = 3;
+            if($user->save()){
+                return true;
+            }
+        }
+    }
+
+    public function disable_rec_acc()
+    {
+     
+        if (isset($_POST['disable_id'])) {
+            $user = User::find($_POST['disable_id']);
+                $isdisabled = 1 ; 
+                $user->data['is_disabled'] = $isdisabled;
+            if($user->save()){
+                return true;
+            }
+        }
+    }
+
+    public function enable_rec_acc()
+    {
+            if (isset($_POST['enable_id'])) {
+                $user = User::find($_POST['enable_id']);
+                    $isdisabled = 0 ; 
+                    $user->data['is_disabled'] = $isdisabled;
+                    if($user->save()){
+                    return true;
+                }
+            }
+    }
+
+
+
+    public function ManagerPIN($MP,$isIdentical)
+{
+    $ManagerPIN = 4444 ;
+    $isIdentical = true ;  
+    if($MP==$ManagerPIN )
+    {
+        $isIdentical = true ;  
+    }
+    else 
+    {
+        $isIdentical = false ;  
+    }
+    
+}
 
 
 

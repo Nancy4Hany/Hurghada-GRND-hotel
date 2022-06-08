@@ -1,9 +1,9 @@
 <?php
-include "../includes/dashboard/header.php";
 include "../models/Reservation.php";
 include "../controllers/ReservationsController.php";
 $controller = new ReservationsController();
 $reservation = $controller->showDetails();
+include "../includes/dashboard/header.php";
 ?>
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">

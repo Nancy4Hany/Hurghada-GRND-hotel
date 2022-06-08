@@ -1,6 +1,6 @@
 <div class="py-4 text-gray-500 dark:text-gray-400">
     <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-        Windmill
+        Dashboard
     </a>
     <ul class="mt-6">
         <li class="relative px-6 py-3">
@@ -13,19 +13,19 @@
     </ul>
     <ul>
         <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="forms.php">
+            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="reservations.php">
                 <i class="las la-list text-xl"></i>
                 <span class="ml-4">Reservations</span>
             </a>
         </li>
         <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="cards.php">
+            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="users.php">
                 <i class="las la-address-book text-xl"></i>
                 <span class="ml-4">Guests</span>
             </a>
         </li>
         <li class="relative px-6 py-3">
-            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="charts.php">
+            <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="users.php">
                 <i class="las la-users text-xl"></i>
                 <span class="ml-4">Receptionist</span>
             </a>
@@ -36,13 +36,13 @@
                 <span class="ml-4">Rooms</span>
             </a>
         </li>
-        <li class="relative px-6 py-3">
+        <!-- <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="tables.php">
                 <i class="las la-comment text-xl"></i>
 
                 <span class="ml-4">Comments</span>
             </a>
-        </li>
+        </li> -->
         <li class="relative px-6 py-3">
             <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" href="tables.php">
                 <i class="las la-cog text-xl"></i>

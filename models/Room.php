@@ -46,8 +46,6 @@ class Room extends Model{
         }, $values);
         return $values;
     }
-<<<<<<< HEAD
-=======
     public static function find_available($start_date, $end_date)
     {
         $instance = new static();
@@ -62,7 +60,6 @@ class Room extends Model{
         
         return $rooms;
     }
->>>>>>> 4948dc94726919e40fc18246bd11e67db83efac2
     
 
 }

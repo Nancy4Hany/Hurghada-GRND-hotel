@@ -1,7 +1,14 @@
 <?php
-include "../includes/dashboard/header.php";
 require_once dirname(__FILE__) . "/../models/User.php";
+require_once dirname(__FILE__) . "/../controllers/UserController.php";
+$controller = new UserController();
+$result = $controller->promote_to_qc();
+$disabled_result = $controller->disable_rec_acc();
+$enable_result = $controller->enable_rec_acc();
+
 $users = User::all();
+
+include "../includes/dashboard/header.php";
 ?>
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">
@@ -16,8 +23,33 @@ $users = User::all();
       </a>
     </div>
 
+    <?php
+      if($result){
+        echo "<div class='bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4' role='alert'>
+        <p class='font-bold'>Success!</p>
+        <p>User has been promoted to QC</p>
+      </div>";
 
+      }
+    ?>
+<?php
+      if($disabled_result){
+        echo "<div class='bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4' role='alert'>
+        <p class='font-bold'>Success!</p>
+        <p>User has been disabled</p>
+      </div>";
 
+      }
+    ?>
+    <?php
+      if($enable_result){
+        echo "<div class='bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4' role='alert'>
+        <p class='font-bold'>Success!</p>
+        <p>User has been enabled</p>
+      </div>";
+
+      }
+    ?>
     <!-- With actions -->
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
@@ -28,6 +60,8 @@ $users = User::all();
               <th class="px-4 py-3">Name</th>
               <th class="px-4 py-3">Email</th>
               <th class="px-4 py-3">National ID</th>
+              <th class="px-4 py-3">User Type</th>
+              <th class="px-4 py-3">account status</th>
               <th class="px-4 py-3">promote</th>
               <th class="px-4 py-3">Actions</th>
             </tr>
@@ -35,14 +69,21 @@ $users = User::all();
           <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
             <?php foreach ($users as $user) : ?>
               <tr class="text-gray-700 dark:text-gray-400">
-              </td>
+                  </td>
+
+                  <!-- <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                    <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                    <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                  </div> -->
+
+
                 <td class="px-4 py-3">
-                  <div class="flex items-center text-sm">
-                    <div class="w-16 h-16 relative">
-                      <img class="w-full transform hover:scale-125 transition-all cursor-pointer h-full object-cover object-center" src="
-                      <?= "../uploads/" . $user["image"]; ?> " alt="" />
+                  <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                    <!-- <div class="w-16 h-16 relative"> -->
+                      <img class="object-cover w-full h-full rounded-full" src="<?= "../uploads/" . $user["image"]; ?> " alt="" />
+                      <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                     </div>
-                  </div>
+                  <!-- </div> -->
                 </td>
                 <td class="px-4 py-3">
                   <div class="flex items-center text-sm">
@@ -69,11 +110,47 @@ $users = User::all();
                 </td>
                 <td class="px-4 py-3">
                   <div class="flex items-center text-sm">
+                  <?=$user["user_type_name"];?>
+                </div>
+                </td>
+
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
+                    <div>
+                      <form method="POST">
+                        <?php
+                        if(!$user["is_disabled"]){
+                        ?>
+                        <input type="hidden"  name="disable_id" value="<?=$user["id"];?>">
+                        <button type="submit" class="bg-red-500 rounded-md text-white py-2 px-4 hover:bg-red-700" > <i class="las la-ban"></i> Disable Account</button>
+                        <?php
+                        } else{
+                          ?>
+                          <input type="hidden"  name="enable_id" value="<?=$user["id"];?>">
+                          <button type="submit" class="bg-green-500 rounded-md text-white py-2 px-4 hover:bg-green-700" > <i class="las la-check"></i> Enable Account</button>
+                          <?php
+                        } 
+                        ?>
+                        </form>
+                    </div>
+                  </div>
+
+
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
                     <div class="w-16 h-16 relative">
-                      <a href="../controllers/UserController.php?promote=<?= $user["id"]; ?>">
-                        <button class="bg-purple-500 hover:bg-purple-700 active:bg-purple-600 text-white">
+                    <?php
+                      if($user["user_type_id"] == 2){
+                        ?>
+                        <form method="POST">
+                          <input type="hidden" name="promote_id" value="<?= $user["id"]; ?>">
+                          <button class="bg-purple-500 py-2 px-4 rounded-md hover:bg-purple-700 flex active:bg-purple-600 text-white">
                           <i class="las la-plus text-lg"></i> promote
-                        </button>
+                          </button>
+                        </form>
+                        <?php
+                      }
+                      ?>
              
                       </div>
                   </div>
@@ -194,168 +271,3 @@ $users = User::all();
 
 
 
-
-
-
-
-
-<?php
-include "../includes/dashboard/header.php";
-include "../models/User.php";
-$users = User::all();
-?>
-<main class="h-full pb-16 overflow-y-auto">
-  <div class="container grid px-6 mx-auto">
-    <div class="flex justify-between items-center">
-      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-        Users
-      </h2>
-      <a href="add-room.php">
-        <button class="py-2 px-4 rounded-md bg-purple-500 hover:bg-purple-700 active:bg-purple-600 text-white">
-          <i class="las la-plus text-lg"></i> Add User
-        </button>
-      </a>
-    </div>
-
-
-
-    <!-- With actions -->
-    <div class="w-full overflow-hidden rounded-lg shadow-xs">
-      <div class="w-full overflow-x-auto">
-        <table id="images" class="w-full whitespace-no-wrap">
-          <thead>
-            <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-              <th class="px-4 py-3">image</th>
-              <th class="px-4 py-3">Name</th>
-              <th class="px-4 py-3">Email</th>
-              <th class="px-4 py-3">National ID</th>
-              <th class="px-4 py-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-            <?php foreach ($users as $user) : ?>
-              <tr class="text-gray-700 dark:text-gray-400">
-                
-              <td class="px-4 py-3">
-                  <div class="flex items-center text-sm">
-                    <div class="w-16 h-16 relative">
-                      <img class="w-full transform hover:scale-125 transition-all cursor-pointer h-full object-cover object-center" src="
-                      <?= "../uploads/" . $user["image"]; ?> " alt="" />
-                    </div>
-                  </div>
-                </td>
-                <td class="px-4 py-3">
-                  <div class="flex items-center text-sm">
-                    <div>
-                      <p class="font-semibold"><?= $user["name"]; ?></p>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-4 py-3">
-                  <div class="flex items-center text-sm">
-                    <div>
-                      <p class="font-semibold"><?= $user["email"]; ?></p>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-4 py-3">
-                  <div class="flex items-center text-sm">
-                    <div class="w-16 h-16 relative">
-                      <img class="w-full transform hover:scale-125 transition-all cursor-pointer h-full object-cover object-center" src="
-                      <?= "../uploads/" . $user["national_id"]; ?> " alt="" />
-                    </div>
-                  </div>
-                </td>
-                <td class="px-4 py-3">
-                  <div class="flex items-center space-x-4 text-sm">
-                    <a href="add-user.php?id=<?= $user["id"]; ?>"><button class=" flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
-                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
-                        </svg>
-                      </button></a>
-                    <a href="delete-room.php?type=user&id=<?= $user["id"]; ?>">
-                      <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Delete">
-                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                        </svg>
-                      </button>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-            <?php endforeach; ?>
-
-          </tbody>
-        </table>
-      </div>
-      <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
-        <span class="flex items-center col-span-3">
-          Showing 21-30 of 100
-        </span>
-        <span class="col-span-2"></span>
-        <!-- Pagination -->
-        <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-          <nav aria-label="Table navigation">
-            <ul class="inline-flex items-center">
-              <li>
-                <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple" aria-label="Previous">
-                  <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                    <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
-                  </svg>
-                </button>
-              </li>
-              <li>
-                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                  1
-                </button>
-              </li>
-              <li>
-                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                  2
-                </button>
-              </li>
-              <li>
-                <button class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
-                  3
-                </button>
-              </li>
-              <li>
-                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                  4
-                </button>
-              </li>
-              <li>
-                <span class="px-3 py-1">...</span>
-              </li>
-              <li>
-                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                  8
-                </button>
-              </li>
-              <li>
-                <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                  9
-                </button>
-              </li>
-              <li>
-                <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple" aria-label="Next">
-                  <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                    <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </span>
-      </div>
-    </div>
-  </div>
-</main>
-</div>
-</div>
-<script>
-  const gallery = new Viewer(document.getElementById('images'));
-</script>
-</body>
-
-</html>

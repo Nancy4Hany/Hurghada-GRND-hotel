@@ -203,7 +203,7 @@ h2{
 		$("#progressbar li").eq($("fieldset")
 			.index(currentGfgStep)).removeClass("active");
 
-		// previousGfgStep.show();
+		previousGfgStep.show();
 
 		currentGfgStep.animate({ opacity: 0 }, {
 			step: function (now) {
@@ -291,3 +291,5 @@ h2{
 <script src="script.js"></script>
 
 </html>
+
+//create a code to make a steps progress bar

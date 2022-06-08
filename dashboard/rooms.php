@@ -1,7 +1,9 @@
 <?php
-include "../includes/dashboard/header.php";
 include "../models/Room.php";
 $rooms = Room::all();
+
+include "../includes/dashboard/header.php";
+
 ?>
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">
@@ -150,3 +152,4 @@ $rooms = Room::all();
 </body>
 
 </html>
+
