@@ -25,7 +25,7 @@ class ReservationsController
         return($user_reservations);
     }
 
-  
+ 
 }
 
 

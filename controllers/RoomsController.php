@@ -4,6 +4,8 @@ require_once dirname(__FILE__) . '/../models/RoomPhoto.php';
 require_once dirname(__FILE__) . '/../models/Reservation.php';
 require_once dirname(__FILE__) . '/../models/ReservationRoom.php';
 
+require_once dirname(__FILE__).'/../models/RoomType.php'; 
+require_once dirname(__FILE__).'/../classes/DB.php';
 class RoomsController{
     public function add_room()
     {
@@ -63,7 +65,25 @@ class RoomsController{
         }
         return false;
     }
+public function room_type()
+{
+    if(isset($_POST["submit"]))
+    {
+    $_SESSION['id'] = 1;//for testing
+    $user_id=$_SESSION['id'];
 
+    $name=$_POST['rooms'];
+
+     $RoomType = new RoomType(); 
+     $RoomType->data["id"]= $user_id;
+     $RoomType->data["name"]=$name;  
+
+     if($RoomType->save())
+     {
+         return true ; 
+     }return false;
+    }
+}
     public function delete_room()
     {
         // if(isset($_POST["submit"]))
@@ -78,9 +98,8 @@ class RoomsController{
 
             $start_date = $_POST['start_date'];
             $end_date = $_POST['end_date'];
-            $Room = new Room();
-            $Room->data["start_date"] = $start_date;
-            $Room->data["end_date"] = $end_date;
+            $rooms = Room::find_available($start_date,$end_date);
+            return $rooms;
         }
         return false;
     }

@@ -43,7 +43,7 @@ class UserController{
 
 
             // $user_type_id = $_POST['user_type_id'];
-           
+            // $user_type_id = 1;
             // if (isset($_POST['id'])) {
             //    x` $user = User::find($_POST["id"]);
             // } else {
@@ -55,6 +55,10 @@ class UserController{
             $user->data["email"] = $email;
             $user->data["national_id"] = $national_id;
             $user->data["birth_date"] = $birth_date;
+            $user->data["user_type_id"] = 1;
+            $user->data["nationality"] = $nationality;
+            $user->data["address"] = $address;
+            $user->data["phone"] = $mobile_number;
             // $user->data["nationality"] = $nationality;
             // $user->data["address"] = $address;
             // $user->data["phone"] = $mobile_number;
@@ -63,8 +67,8 @@ class UserController{
             return true;
 
         }
-        return false;
     }
+    return false;
 }
     
     public function add_user()
@@ -102,10 +106,11 @@ class UserController{
             move_uploaded_file($national_id["tmp_name"], $target_file);
             $national_id = $file_name;
             $birth_date = date('Y-m-d',strtotime($_POST['birth_date']));
-            // $user_type_id = $_POST['user_type_id'];
+            $user_type_id = $_POST['user_type_id'];
             $user_type_id = 1;
             if(isset($_POST['id'])){
                 $user = User::find($_POST["id"]);
+        
             }else{
                 $user = new User();
             }
@@ -123,7 +128,6 @@ class UserController{
         }
         return false;
     }
-
 
     public function promote_to_qc(){
         if(isset($_POST['promote_id'])){

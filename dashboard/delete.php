@@ -1,4 +1,5 @@
 <?php
+
 foreach (glob(dirname(__FILE__) . '/../models/*.php') as $file) {
     require_once $file;
 }

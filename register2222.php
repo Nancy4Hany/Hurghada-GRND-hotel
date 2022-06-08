@@ -1,6 +1,6 @@
 <?php
 require_once "controllers/UserController.php";
-$controller = new ReservationsController();
+$controller = new UserController();
 $result = $controller->register();
 ?>
 
@@ -64,6 +64,14 @@ $result = $controller->register();
                         <input type="text" name="email" placeholder="Enter your email" required>
                     </div>
 
+                    <div class="mobile">
+                        <label>Mobile Number</label>
+                        <input type="number" name="mobile_number" placeholder="Enter mobile number" required>
+                    </div>
+
+                    <div class="gender ">
+                        <label>Gender</label>
+                        <select required name="gender">
 
                             <option disabled selected>Select gender</option>
                             <option>Male</option>
@@ -72,7 +80,12 @@ $result = $controller->register();
                         </select>
                     </div>
 
-                 
+                    <div class="occ">
+                        <label>Occupation</label>
+                        <input type="text" name="occ" placeholder="Enter your ccupation" required>
+                    </div>
+                </div>
+            </div>
 
             <div class="font-weight-bold">ID details </div>
 
@@ -92,9 +105,15 @@ $result = $controller->register();
                 <label>personal image </label>
                 <input type="image" placeholder="upload your photo " name="personal_image" required>
 
-           
+            </div>
+            <div class="form second">
+                <div class="font-weight-bold">Address Details</div>
 
-               
+                <div class="fields">
+                    <div class="address">
+                        <label>Address </label>
+                        <input type="text" placeholder="Enter your address " name="address" required>
+                    </div>
 
                     <div class="nationality">
                         <label>Nationality</label>

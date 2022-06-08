@@ -72,7 +72,8 @@ class Reservation extends Model
 
         return $reservations;
     }
-    public static function reservation_details($id){
+    public static function reservation_details($id)
+    {
         $instance = new self();
         $table = $instance->table;
         $reservations = DB::query("SELECT * FROM $table WHERE user_id=:user_id",array(':user_id'=>$id));
