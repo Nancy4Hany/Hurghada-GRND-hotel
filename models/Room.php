@@ -78,5 +78,15 @@ class Room extends Model{
         return $rooms;
     }
     
+    
+    public  static function allByType($type){
+        $instance = new self();
+        $table = $instance->table;
+        $values = DB::query("SELECT r.*, t.name as room_type_name FROM $table r, room_types t WHERE t.id = r.room_type_id AND t.id=:id",array(':id'=>$type));
+        $values = array_map(function($array){
+            return array_filter($array, function($key) { return gettype($key) != "integer"; }, ARRAY_FILTER_USE_KEY);
+        }, $values);
+        return $values;
+    }
 
 }
