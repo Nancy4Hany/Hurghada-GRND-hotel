@@ -1,5 +1,6 @@
 <?php
 include "models/Room.php";
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -35,6 +36,8 @@ include "models/Room.php";
         <!-- end of header -->
 
         <!-- side navbar -->
+
+        
         <div class = "sidenav" id = "sidenav">
            
             
@@ -43,9 +46,21 @@ include "models/Room.php";
             </span>
             <br>
             <br>
-            <div class = "w-50 h-50" style="align-content: center;">
-            <img  class="img-fluid rounded" src="images/bestprofilepic.jpg" alt="profile" >
+            
+        <?php
+            
+            if (isset($_SESSION["id"]))
+            {
+                ?>
+                <div class = "w-50 h-50 rounded" style="align-content: center;">
+            <img  class="img-fluid" src="images/hotellogo.jpg" alt="profile" >
             </div>
+                <?php
+            }
+         
+           
+            
+?>
             <ul class = "navbar">
                 <li><a href = "#header">Home</a></li>
                 <li><a href = "#services">Services</a></li>
@@ -55,7 +70,25 @@ include "models/Room.php";
                 <li><a href = "#customers">Done reservation</a></li>
             </ul>
             
-            <button class = "btn log-in">log out</button>
+        <?php
+            if (session_id())
+
+            {
+                ?>
+               <button class = "btn log-in">log out</button>
+                <?php
+
+            }
+            else {
+                ?>
+                <button class = "btn log-in">log in</button>
+                <button class = "btn log-in">signup</button>
+                 <?php
+
+            }
+            
+?>
+            
         </div>
         <!-- end of side navbar -->
 
