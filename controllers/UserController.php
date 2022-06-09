@@ -7,7 +7,6 @@ class UserController{
     if (isset($_POST["submit"])){
 
 
-
     }
 
     }

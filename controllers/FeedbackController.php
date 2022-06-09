@@ -21,6 +21,7 @@ class FeedbackController{
         if(isset($_POST['submit'])){
             $ids = $_POST['question_id'];
             $answers = $_POST['answer'];
+            $option = $_POST['option'];
             $i=0;
             foreach($ids as $id){
                 $answer = $answers[$i];
@@ -29,6 +30,7 @@ class FeedbackController{
                 $feedback->data["user_id"] = 1;
                 $feedback->data["question_id"] = $id;
                 $feedback->data["comment"] = $answer;
+                $feedback->data["question_option_id"] = $option;
                 $feedback->save();
                 $i++;
             }
