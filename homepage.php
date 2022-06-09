@@ -1,7 +1,8 @@
 <?php
 include "models/Room.php";
+require_once dirname(__FILE__) . '/controllers/RoomsController.php';
 session_start();
-$_SESSION['id']=1;
+$_SESSION['id'] = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,71 +28,67 @@ $_SESSION['id']=1;
             <div class="site-nav">
                 <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
             </div>
-        </header>
-        <!-- end of header -->
+    </header>
+    <!-- end of header -->
 
-        <!-- side navbar -->
+    <!-- side navbar -->
 
-        
-        <div class = "sidenav" id = "sidenav">
-           
-            
-            <span class = "cancel-btn" id = "cancel-btn">
-                <i class = "fas fa-times"></i>
-            </span>
-            <br>
-            <br>
-            
+
+    <div class="sidenav" id="sidenav">
+
+
+        <span class="cancel-btn" id="cancel-btn">
+            <i class="fas fa-times"></i>
+        </span>
+        <br>
+        <br>
+
         <?php
-            
-            if (isset($_SESSION["id"]))
-            {
-                ?>
-                <div class = "w-50 h-50 rounded" style="align-content: center;">
-            <img  class="img-fluid" src="images/hotellogo.jpg" alt="profile" >
+
+        if (isset($_SESSION["id"])) {
+        ?>
+            <div class="w-50 h-50 rounded" style="align-content: center;">
+                <img class="img-fluid" src="images/hotellogo.jpg" alt="profile">
             </div>
-                <?php
-            }
-         
-           
-            
-?>
-            <ul class = "navbar">
-                <li><a href = "#header">Home</a></li>
-                <li><a href = "#services">Services</a></li>
-                <li><a href = "#rooms">Rooms</a></li>
-                <li><a href = "#customers">Customers</a></li>
-                <li><a href = "#customers">Reservation in progress</a></li>
-                <li><a href = "#customers">Done reservation</a></li>
-            </ul>
-            
         <?php
-            if (isset($_SESSION["id"]))
+        }
 
-            {
-                ?>
-               <button class = "btn log-in">log out</button>
-                <?php
 
-            }
-            else {
-                ?>
-                <button class = "btn log-in">log in</button>
-                <button class = "btn log-in">signup</button>
-                 <?php
 
-            }
-            
-?>
-            
-        </div>
+        ?>
+        <ul class="navbar">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#customers">Customers</a></li>
+            <li><a href="#customers">Reservation in progress</a></li>
+            <li><a href="#customers">Done reservation</a></li>
+        </ul>
 
-        <div class="head-bottom flex">
-            <h2 style="font-family: Dosis;">NICE AND COMFORTABLE PLACE TO STAY</h2>
-            <p>Grand Hotel is a quiet, comfortable hotel located in Hurghada. Hurghada GRND Hotel is one of the biggest Hotels in Hurghada. It has been operating in
-                Hurghada since 1910. It has several restaurants and activities. All rooms have private bathrooms with hot water. </p>
-            <button type="button" class="head-btn">GET STARTED</button>
-        </div>
+        <?php
+        if (isset($_SESSION["id"])) {
+        ?>
+            <button class="btn log-in">log out</button>
+        <?php
+
+        } else {
+        ?>
+            <button class="btn log-in">log in</button>
+            <button class="btn log-in">signup</button>
+        <?php
+
+        }
+
+        ?>
+
+    </div>
+
+    <div class="head-bottom flex">
+        <h2 style="font-family: Dosis;">NICE AND COMFORTABLE PLACE TO STAY</h2>
+        <p>Grand Hotel is a quiet, comfortable hotel located in Hurghada. Hurghada GRND Hotel is one of the biggest Hotels in Hurghada. It has been operating in
+            Hurghada since 1910. It has several restaurants and activities. All rooms have private bathrooms with hot water. </p>
+        <button type="button" class="head-btn">GET STARTED</button>
+    </div>
     </header>
     <!-- end of header -->
 
@@ -228,15 +225,16 @@ $_SESSION['id']=1;
             <?php
 
             $rooms = Room::all();
-            
-            for ($counter=0;$counter<4;$counter++) {
+
+            for ($i = 0; $i < 4; $i++) {
+                $images = Room::find($rooms[$i]["id"])->getImages();
             ?>
                 <article class="room">
                     <div class="room-image">
-                        <img src="images/rrom1.jpg" alt="room image">
+                        <img src="<?= $images[0]["image"] ?>" alt="room image">
                     </div>
                     <div class="room-text">
-                        <h3><?= $rooms["name"]; ?></h3>
+                        <h3><?= $rooms[$i]["name"]; ?></h3>
                         <ul>
                             <li>
                                 <i class="fas fa-arrow-alt-circle-right"></i>
@@ -254,14 +252,19 @@ $_SESSION['id']=1;
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus exercitationem repellendus maxime ullam tempore architecto provident unde expedita quam beatae, dolore eligendi molestias sint tenetur incidunt voluptas. Unde corporis qui iusto vitae. Aut nesciunt id iste, cum esse commodi nemo?</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla corporis quasi officiis cumque, fugiat nostrum sunt, tempora animi dicta laborum beatae ratione doloremque. Delectus odio sit eius labore, atque quo?</p>
                         <p class="rate">
-                            <span><?= $rooms["price"]; ?></span> Per Night
+                            <span><?= $rooms[$i]["price"]; ?></span> Per Night
                         </p>
+                        <a href="roomDetails.php?id=<?=$rooms[$i]["id"]?>">
+                            <button class="btn">
+                                Show Details
+                            </button>
+                        </a>
                     </div>
                 </article>
 
             <?php
             }
-           
+
             ?>
         </div>
     </section>

@@ -94,5 +94,12 @@ public function room_type()
         return false;
     }
 
+    public function showDetails()
+    {   
+     
+        $rooms = Room::find(2);
+        return($rooms);
+    }
+
   
 }
