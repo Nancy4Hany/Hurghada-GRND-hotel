@@ -12,7 +12,6 @@ $user = $controller->showData();
 <head>
     <?php
     include "QC.html";
-    //include "connect.php";
 
     ?>
 
@@ -21,7 +20,6 @@ $user = $controller->showData();
     <div class = "container">
     <div class = "col-md-3 col-sm-6 my-3 my-md-20">
 
-        
     <div class = "card shadow">
 
         <div class="relative flex items-center justify-center w-32 h-32 select-none">
