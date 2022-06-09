@@ -1,9 +1,31 @@
 <?php
-include "../includes/dashboard/header.php";
+$type = "receptionist";
+if($type != "receptionist"){
+    die('You are not authorized to view this page');
+}
 include "../models/Reservation.php";
 $reservations = Reservation::all();
-
+include "../includes/dashboard/header.php";
 ?>
+
+<div id="myModal" class="hidden fixed flex px-8 z-50 justify-center items-center top-0 left-0 w-full h-full">
+  <div class="w-full z-20 absolute h-full bg-black opacity-20"></div>
+  <div class="w-full z-50 absolute lg:w-1/2 py-8 px-16 rounded-lg bg-white dark:bg-gray-700 text-black dark:text-white">
+    <p>Are you sure you want to delete this item?</p>
+    <div class=" mt-8">
+      <form action="" method="GET">
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="type" value="reservation">
+        <input type="password" name="pin" placeholder="Enter manager PIN" class="py-2 px-8 rounded w-full mb-4 dark:bg-gray-600 dark:text-white">
+        <div class="flex">
+          <a href="<?= $_SERVER['HTTP_REFERER'] ?>" class="py-2 px-4 bg-purple-500 rounded-md text-white">No</a>
+          <input type="submit" name="delete" value="Yes" class="py-2 px-4 bg-red-500 ml-4 cursor-pointer rounded-md text-white">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">
     <div class="flex justify-between items-center">
@@ -49,7 +71,7 @@ $reservations = Reservation::all();
                 </td>
 
                 <td class="px-4 py-3 text-sm">
-                  <?= $reservation["receptionist_name"]; ?>
+                  <?= $reservation["receptionist_name"] ?? "N/A"; ?>
                 </td>
                 <td class="px-4 py-3 text-sm">
                   <?= $reservation["start_date"]; ?>
@@ -90,7 +112,7 @@ $reservations = Reservation::all();
                         </svg>
                       </button></a>
 
-                    <a href="delete.php?type=reservation.php&id=<?= $reservation["id"]; ?>">
+                    <a id="delete" data-id="<?= $reservation["id"]; ?>" data-href="delete.php">
                       <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Delete">
                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
@@ -98,8 +120,16 @@ $reservations = Reservation::all();
                         </svg>
                       </button>
                     </a>
+                    <script>
+                      document.getElementById("delete").addEventListener("click", function() {
+                        var modal = document.getElementById("myModal");
+                        modal.classList.remove('hidden');
+                        modal.querySelector('input[name="id"').value = this.getAttribute("data-id");
+                        modal.querySelector('form').action = this.getAttribute('data-href');
+                      });
+                    </script>
                     <a href="view-reservation.php?id=<?= $reservation["id"]; ?>">
-                      <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Delete">
+                      <button class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
                         <i class="las la-eye text-xl"></i>
                       </button>
                     </a>

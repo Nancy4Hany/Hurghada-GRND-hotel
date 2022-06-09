@@ -41,6 +41,12 @@ include "../includes/dashboard/header.php";
         <?php
         }
         ?>
+
+<label class="block text-sm mt-4">
+          <span class="text-gray-700 dark:text-gray-400">image</span>
+          <input accept=".jpg,.png,.jpeg" name="image" type="file" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
+        </label>
+
         <label class="block text-sm">
           <span class="text-gray-700 dark:text-gray-400">Name</span>
           <input name="name" value="<?= (isset($user)) ? $user["name"] : ""; ?>" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" placeholder="" />

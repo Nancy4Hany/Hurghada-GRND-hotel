@@ -1,7 +1,14 @@
 <?php
-include "../includes/dashboard/header.php";
-include "../models/User.php";
+require_once dirname(__FILE__) . "/../models/User.php";
+require_once dirname(__FILE__) . "/../controllers/UserController.php";
+$controller = new UserController();
+$result = $controller->promote_to_qc();
+$disabled_result = $controller->disable_rec_acc();
+$enable_result = $controller->enable_rec_acc();
+
 $users = User::all();
+
+include "../includes/dashboard/header.php";
 ?>
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">
@@ -9,37 +16,83 @@ $users = User::all();
       <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
         Users
       </h2>
-      <a href="add-room.php">
+      <a href="add-user.php">
         <button class="py-2 px-4 rounded-md bg-purple-500 hover:bg-purple-700 active:bg-purple-600 text-white">
           <i class="las la-plus text-lg"></i> Add User
         </button>
       </a>
     </div>
 
+    <?php
+      if($result){
+        echo "<div class='bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4' role='alert'>
+        <p class='font-bold'>Success!</p>
+        <p>User has been promoted to QC</p>
+      </div>";
 
+      }
+    ?>
+<?php
+      if($disabled_result){
+        echo "<div class='bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4' role='alert'>
+        <p class='font-bold'>Success!</p>
+        <p>User has been disabled</p>
+      </div>";
 
+      }
+    ?>
+    <?php
+      if($enable_result){
+        echo "<div class='bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4' role='alert'>
+        <p class='font-bold'>Success!</p>
+        <p>User has been enabled</p>
+      </div>";
+
+      }
+    ?>
     <!-- With actions -->
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
         <table id="images" class="w-full whitespace-no-wrap">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+            <th class="px-4 py-3">image</th>
               <th class="px-4 py-3">Name</th>
               <th class="px-4 py-3">Email</th>
               <th class="px-4 py-3">National ID</th>
+              <th class="px-4 py-3">User Type</th>
+              <th class="px-4 py-3">account status</th>
+              <th class="px-4 py-3">promote</th>
               <th class="px-4 py-3">Actions</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
             <?php foreach ($users as $user) : ?>
               <tr class="text-gray-700 dark:text-gray-400">
+                  </td>
+
+                  <!-- <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                    <img class="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                    <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                  </div> -->
+
+
+                <td class="px-4 py-3">
+                  <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                    <!-- <div class="w-16 h-16 relative"> -->
+                      <img class="object-cover w-full h-full rounded-full" src="<?= "../uploads/" . $user["image"]; ?> " alt="" />
+                      <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                    </div>
+                  <!-- </div> -->
+                </td>
                 <td class="px-4 py-3">
                   <div class="flex items-center text-sm">
                     <div>
                       <p class="font-semibold"><?= $user["name"]; ?></p>
                     </div>
                   </div>
-                </td>
+  
+          
                 <td class="px-4 py-3">
                   <div class="flex items-center text-sm">
                     <div>
@@ -55,6 +108,55 @@ $users = User::all();
                     </div>
                   </div>
                 </td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
+                  <?=$user["user_type_name"];?>
+                </div>
+                </td>
+
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
+                    <div>
+                      <form method="POST">
+                        <?php
+                        if(!$user["is_disabled"]){
+                        ?>
+                        <input type="hidden"  name="disable_id" value="<?=$user["id"];?>">
+                        <button type="submit" class="bg-red-500 rounded-md text-white py-2 px-4 hover:bg-red-700" > <i class="las la-ban"></i> Disable Account</button>
+                        <?php
+                        } else{
+                          ?>
+                          <input type="hidden"  name="enable_id" value="<?=$user["id"];?>">
+                          <button type="submit" class="bg-green-500 rounded-md text-white py-2 px-4 hover:bg-green-700" > <i class="las la-check"></i> Enable Account</button>
+                          <?php
+                        } 
+                        ?>
+                        </form>
+                    </div>
+                  </div>
+
+
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
+                    <div class="w-16 h-16 relative">
+                    <?php
+                      if($user["user_type_id"] == 2){
+                        ?>
+                        <form method="POST">
+                          <input type="hidden" name="promote_id" value="<?= $user["id"]; ?>">
+                          <button class="bg-purple-500 py-2 px-4 rounded-md hover:bg-purple-700 flex active:bg-purple-600 text-white">
+                          <i class="las la-plus text-lg"></i> promote
+                          </button>
+                        </form>
+                        <?php
+                      }
+                      ?>
+             
+                      </div>
+                  </div>
+                </td>
+       
+
                 <td class="px-4 py-3">
                   <div class="flex items-center space-x-4 text-sm">
                     <a href="add-user.php?id=<?= $user["id"]; ?>"><button class=" flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Edit">
@@ -148,3 +250,24 @@ $users = User::all();
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,6 +27,22 @@ class User extends Model
         return DB::query("SELECT u.*, t.name as user_type_name FROM $table u, user_types t WHERE t.id = u.user_type_id AND t.name='receptionist'");
     }
 
+    public static function login($email, $password){
+        $instance = new self();
+        $table = $instance->table;
+        $check = DB::query("SELECT id FROM {$table} WHERE email=:email AND password=:password",array(':email'=>$email, ':password'=>$password));
+        if($check){
+            return $check[0]["id"];
+        }
+        return false;
+    }
+
+    public function getType()
+    {
+        $user = $this;
+        $user_type = UserType::find($user->data["id"]);
+        return $user_type->data["name"];
+    }
 
     public static function findbyemail($email)
     {

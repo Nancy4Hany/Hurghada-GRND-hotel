@@ -1,7 +1,8 @@
 <?php
-include "../includes/dashboard/header.php";
 include "../models/User.php";
 $receptionist_table = User::all_receptionists();
+
+include "../includes/dashboard/header.php";
 ?>
 <main class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">

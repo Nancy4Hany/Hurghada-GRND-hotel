@@ -8,7 +8,9 @@ require "models/QCQuestionType.php";
 
 //$questions = array_map(function($name){
 //   return array($name, QCQuestionType::find())},$questions);
-//?>
+//
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
