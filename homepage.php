@@ -254,11 +254,14 @@ $_SESSION['id'] = 1;
                         <p class="rate">
                             <span><?= $rooms[$i]["price"]; ?></span> Per Night
                         </p>
-                        <a href="roomDetails.php?id=<?=$rooms[$i]["id"]?>">
-                            <button class="btn">
-                                Show Details
-                            </button>
-                        </a>
+                        <div>
+                            <!-- go to roomdetails need fix backened -->
+                            <a href="roomDetails.php?id=<?= $rooms[$i]["id"] ?>">
+                                <button class="btn">
+                                    Show Details
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </article>
 

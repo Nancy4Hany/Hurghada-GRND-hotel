@@ -3,7 +3,7 @@
 require_once "controllers/UserController.php";
 require_once "controllers/ReservationsController.php";
 $controller = new UserController();
-$result = $controller->register();
+$result = $controller->add_user();
 ?>
 
 <!DOCTYPE html>
@@ -56,15 +56,7 @@ $result = $controller->register();
                                         <input type="password" class="form-control" id="password2" placeholder="Re-enter Password" />
                                     </div>
 
-                                    <div class="form-outnline mt-3">
-                                        <label for="password" style="font-family: Open Sans; font-size:20px; color:#725A7A" class="form-label">Gender</label>
-                                        <select class="select">
-                                            <option value="1" disabled>Gender</option>
-                                            <option value="2">Female</option>
-                                            <option value="3">Male</option>
-                                            <option value="4">Other</option>
-                                        </select>
-                                    </div>
+                                 
 
                                     <label class="block text-sm mb-3">
                                         <div class="personal image">

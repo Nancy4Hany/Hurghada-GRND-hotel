@@ -31,6 +31,7 @@ class FeedbackController{
                 $feedback->data["question_id"] = $id;
                 $feedback->data["comment"] = $answer;
                 $feedback->data["question_option_id"] = $option;
+                $feedback->data["timecolumn"]=time();
                 $feedback->save();
                 $i++;
             }
