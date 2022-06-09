@@ -6,9 +6,7 @@ require "models/QCQuestionType.php";
 
 $questions = QCQuestion::all();
 
-$questions = array_map(function($value){
-    return array($value, QCQuestionType::find())
-},$questions);
+
 ?>
 
 <!DOCTYPE html>

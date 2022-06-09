@@ -7,5 +7,4 @@ class QCQuestionOption extends Model
     protected $table = "question_options";
     
 
-    public static function 
 }
