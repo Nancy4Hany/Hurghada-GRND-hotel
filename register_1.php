@@ -24,47 +24,47 @@ $result = $controller->add_user();
 </head>
 
 <body>
-    <section style="background-color:lightgrey">
+    <section style="background-image:url('images/signinblur.jpg') ; background-size:cover ">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-6 col-xl-6">
-                    <div class="card rounded-3 shadow mb-4" style="width:40em; height:65sem">
-                        <img src="images/signin.jpg" class="w-100 rounded" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt=" ">
+                    <div class="card rounded shadow mb-4" style="width:35em; height:41.75em;background-color:#F9F9F9">
+                        <!-- <img src="images/signin.jpg" class="w-100 rounded" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt=" "> -->
                         <div class="card-body p-4 p-md-4">
                             <h3 class="text-center shadow p-3 mb-3 rounded" style="font-size:35px; color:#725A7A; font-family:Playfair Display;"><b><i>Sign-up</i></b></h3>
                             <form class="form-outline px-md-2">
                                 <div>
-                                    <div class="mb-1">
-                                        <label class="form-label" style="font-family: Open Sans; font-size:20px; color:#725A7A" for="name">Name</label>
+                                    <div class="mb-3">
+                                        <label class="form-label" style="font-family: Open Sans; font-size:20px; color:#FFCE45" for="name">Name</label>
                                         <input type="text" id="name" class="form-control" placeholder="Enter Your Name" />
                                     </div>
 
-                                    <div class="form-outnline mb-1">
-                                        <label for="email" style="font-family: Open Sans; font-size:20px; color:#725A7A" class="form-label">Email</label>
+                                    <div class="form-outnline mb-3">
+                                        <label for="email" style="font-family: Open Sans; font-size:20px; color:#FFCE45" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="email" placeholder="Enter your email" />
 
                                     </div>
 
-                                    <div class="form-outnline mb-1">
-                                        <label for="password" style="font-family: Open Sans; font-size:20px; color:#725A7A" class="form-label">Password</label>
+                                    <div class="form-outnline mb-3">
+                                        <label for="password" style="font-family: Open Sans; font-size:20px; color:#FFCE45" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="password1" placeholder="Enter Your Password" />
 
                                     </div>
 
-                                    <div class="form-outnline mb-1">
-                                        <label for="password" style="font-family: Open Sans; font-size:20px; color:#725A7A" class="form-label">Confirm Password</label>
+                                    <div class="form-outnline mb-3">
+                                        <label for="password" style="font-family: Open Sans; font-size:20px; color:#FFCE45" class="form-label">Confirm Password</label>
                                         <input type="password" class="form-control" id="password2" placeholder="Re-enter Password" />
                                     </div>
 
-                                 
+
 
                                     <label class="block text-sm mb-3">
                                         <div class="personal image">
-                                            <span class="text-gray-700 dark:text-gray-400" style="font-family: Open Sans; font-size:20px; color:#725A7A">National ID</span>
+                                            <span class="text-gold-700 dark:text-gold-400" style="font-family: Open Sans; font-size:20px; color:#FFCE45">National ID</span>
                                             <input accept=".jpg,.png,.jpeg" name="national_id" type="file" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" />
                                         </div>
                                     </label>
-
+                                    <br></br>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-success btn-lg mb-1 " style="background-color:cadetblue;">Submit</button>
 
