@@ -59,7 +59,7 @@ class Room extends Model{
     public static function find($id){
         $instance = new self();
         $table = $instance->table;
-        $data = DB::query("SELECT r.*, t.name as room_type_name FROM $table r, room_types t WHERE t.id = r.room_type_id AND r.id = :id",array(":id"=>$id));
+        $data = DB::query("SELECT r.*, t.name as room_type_name, u.image as room_image FROM $table r, room_types t, room_photos u WHERE u.room_id = r.id AND t.id = r.room_type_id AND r.id = :id",array(":id"=>$id));
         if($data){
             $instance->data = $data[0];
             $instance->data = array_filter($instance->data, function($key) use ($instance) { 
