@@ -21,12 +21,22 @@ class User extends Model{
         return DB::query("SELECT u.*, t.name as user_type_name FROM $table u, user_types t WHERE t.id = u.user_type_id AND t.name='receptionist'");
     }
 
-    public function getType(){
-        $query = "SELECT t.name from users u , user_types t where u.user_type_id=t.id AND u.id=:id";
-        return DB::query($query,array(":id"=>$this->data['id']))[0]["name"];
+    public static function login($email, $password){
+        $instance = new self();
+        $table = $instance->table;
+        $check = DB::query("SELECT id FROM {$table} WHERE email=:email AND password=:password",array(':email'=>$email, ':password'=>$password));
+        if($check){
+            return $check[0]["id"];
+        }
+        return false;
     }
 
-
+    public function getType()
+    {
+        $user = $this;
+        $user_type = UserType::find($user->data["id"]);
+        return $user_type->data["name"];
+    }
 
   public static function findbyemail ($email){
         $instance = new static();

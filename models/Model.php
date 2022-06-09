@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once dirname(__FILE__) . '/../classes/DB.php';
 require_once dirname(__FILE__) . '/../classes/functions.php';
 
@@ -95,5 +96,16 @@ class Model {
         return $values;
     }
 
+    public static function exists($id)
+    {
+        $instance = new static();
+        $table = $instance->table;
+        $data = DB::query("SELECT * FROM $table WHERE id=:id", array(':id' => $id));
+        if ($data) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

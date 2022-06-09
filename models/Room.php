@@ -2,6 +2,8 @@
 require_once dirname(__FILE__) . '/Model.php';
 require_once dirname(__FILE__). '/ReservationRoom.php';
 require_once dirname(__FILE__) . '/Reservation.php';
+require_once dirname(__FILE__) . '/RoomPhoto.php';
+
 
 
 
@@ -35,12 +37,21 @@ class Room extends Model{
     //     // return $ifavailable;
     // }
   
-    
+    public function getImages(){
+        $table = $this->table;
+        $values = DB::query("SELECT p.* FROM room_photos p  WHERE p.room_id = :id",array(":id"=>$this->data["id"]));
+        $values = array_map(function ($array) {
+            return array_filter($array, function ($key) {
+                return gettype($key) != "integer";
+            }, ARRAY_FILTER_USE_KEY);
+        }, $values);
+        return $values;
+    }
     
     public static function all(){
         $instance = new self();
         $table = $instance->table;
-        $values = DB::query("SELECT r.*, t.name as room_type_name FROM $table r, room_types t WHERE t.id = r.room_type_id");
+        $values = DB::query("SELECT r.*, t.name as room_type_name FROM  $table r, room_types t WHERE t.id = r.room_type_id");
         $values = array_map(function($array){
             return array_filter($array, function($key) { return gettype($key) != "integer"; }, ARRAY_FILTER_USE_KEY);
         }, $values);
@@ -63,19 +74,26 @@ class Room extends Model{
     }
 
 
-    public static function find_available($start_date, $end_date)
+    public static function find_available($start_date, $end_date, $room_type_id = null, $reservation_id = null)
     {
         $instance = new static();
-        $query = " SELECT * FROM rooms WHERE id NOT IN(SELECT room_id FROM reservation_rooms LEFT JOIN reservations ON reservations.id = reservation_rooms.reservation_id WHERE :start_date <= end_date AND :end_date >= start_date )";
+        $table = $instance->table;
+        if($room_type_id != null){
+            $query = " SELECT * FROM rooms WHERE room_type_id=:room_type_id AND id NOT IN(SELECT room_id FROM reservation_rooms LEFT JOIN reservations ON reservations.id = reservation_rooms.reservation_id WHERE :start_date <= end_date AND :end_date >= start_date )";
+            $rooms = DB::query($query, array(":start_date" => $start_date, ":end_date" => $end_date, ":room_type_id" => $room_type_id));
+        }
+        else{
+            $query = " SELECT * FROM rooms WHERE id NOT IN(SELECT room_id FROM reservation_rooms LEFT JOIN reservations ON reservations.id = reservation_rooms.reservation_id WHERE :start_date <= end_date AND :end_date >= start_date )";
+            $rooms = DB::query($query, array(":start_date" => $start_date, ":end_date" => $end_date));
+        }
         
-        $rooms = DB::query($query, array(":start_date" => $start_date, ":end_date" => $end_date));
         $data = array_map(function ($array) use ($instance) {
             return array_filter($array, function ($key) use ($instance) {
                 return gettype($key) != "integer" && !in_array($key, $instance->hidden);
             }, ARRAY_FILTER_USE_KEY);
         }, $rooms);
         
-        return $rooms;
+        return $data;
     }
     
     
@@ -88,5 +106,6 @@ class Room extends Model{
         }, $values);
         return $values;
     }
+
 
 }

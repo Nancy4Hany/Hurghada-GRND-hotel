@@ -67,4 +67,18 @@ class ReservationAPI extends API{
         $reservation->save();
         echo json_encode($reservation->data);
     }
+
+    public static function reservation_save(){
+        if ($_SERVER['REQUEST_METHOD'] != "POST") {
+            http_response_code(404);
+            echo json_encode(["error" => $_SERVER['REQUEST_METHOD'] . " method not allowed!"]);
+            exit();
+        }
+        $datax = array();
+        foreach($_POST as $key=>$data){
+            $_SESSION["reservation_tmp"][$key] = $data;
+            $datax[$key] = $data;
+        }
+        echo json_encode($datax);
+    }
 }
