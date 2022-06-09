@@ -7,7 +7,6 @@ class UserController{
     if (isset($_POST["submit"])){
 
 
-
     }
 
     }
@@ -113,26 +112,46 @@ class UserController{
         }
         return false;
     }
-//    public function register()
-//     {
-//         if (isset($_POST["submit"])) {
-//             $validation_message = "";
-//             if(!isset($_POST['name']) || empty($_POST['name'])){
-//                 $validation_message .= "Please enter a valid name\n";
-//             }
-//               if (User::findbyemail($_GET['email']))
-//             {
-//                $validation_message = "user already exist\n" ; 
-//             }
-//             if($validation_message != ""){
-//                 return $validation_message;
-//             }
-//             $name = $_POST['name'];
-//             $email = $_POST['email'];
-//             $password = "123456";
-//             $nationality = $_POST['nationality']; 
-//               $address = $_POST['address']; 
-//             // $password = $_POST['password'];
+    //loji pulled
+
+    // public function login(){
+    //     if(isset($_SESSION['id'])){
+    //         $user = User::find($_SESSION['id']);
+    //         $user_type = $user->getType();
+    //         if ($user_type == "Receptionist" || $user_type == "Quality Control") {
+    //             header('Location: ./dashboard');
+    //             exit();
+    //         } else {
+    //             header('Location: ./');
+    //             exit();
+    //         }
+    //     }
+
+    //     if(isset($_POST['login'])){
+    //         if(!isset($_POST['email']) && !isset($_POST['password'])){
+    //             return "Incorrect email or password";
+    //         }
+    //         $email = $_POST['email'];
+    //         $password = $_POST['password'];
+    //         $user_id = User::login($email,$password);
+    //         if($user_id){
+    //             $user = User::find($user_id);
+    //             $user_type = $user->getType();
+    //             $_SESSION["id"] = $user_id;
+    //             if($user_type == "Receptionist" || $user_type == "Quality Control"){
+    //                 header('Location: ./dashboard');
+    //                 exit();
+    //             }else{
+    //                 header('Location: ./');
+    //                 exit();
+    //             }
+    //         }else{
+    //             return "Incorrect email or password";
+    //         }
+    //     }
+    //     return false;
+    // }
+
 
 //             $national_id = $_FILES['national_id'];
 //             $target_directory = dirname(__FILE__).'/../uploads';

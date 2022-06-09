@@ -4,12 +4,11 @@ require "models/QCQuestion.php";
 require "models/QCQuestionOption.php";
 require "models/QCQuestionType.php";
 
-$questions = QCQuestion::all();
+//$questions = QCQuestion::all();
 
-$questions = array_map(function($value){
-    return array($value, QCQuestionType::find())
-},$questions);
-?>
+//$questions = array_map(function($name){
+//   return array($name, QCQuestionType::find())},$questions);
+//?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +101,7 @@ $questions = array_map(function($value){
                     </div>
                     <div>
                         <br>
-                        <h4 style="color: #AA6F73"> <i>How would you rate us?</i></h4>
+                        <h4 style="background-color:#33475b;"> <i>How would you rate us?</i></h4>
                         <br>
                         <table summary="" aria-labelledby="label_11" cellPadding="4" cellSpacing="0" class="form-matrix-table table table-bordered rounded-lg" data-component="matrix">
                             <tr class="form-matrix-tr form-matrix-header-tr">
