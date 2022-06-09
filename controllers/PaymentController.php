@@ -11,17 +11,17 @@ class PaymentController{
             $user_id=$_SESSION['id'];
             $card_holder = $_POST['card_holder'];
             $creditcard_number = $_POST['creditcard_number'];
-            $securitycode = $_POST["securitycode"];
-            $postalcode = $_POST["postalcode"];
+            $security_code = $_POST["security_code"];
+            $postal_code = $_POST["postal_code"];
             $exp_date = $_POST["exp_date"];
             
             $payment = new Payment();
             $payment->data["user_id"]=$user_id;
             $payment->data["card_holder"] = $card_holder;
             $payment->data["credit_card_number"] = $creditcard_number;
-            $payment->data["security_code"] = $securitycode;
+            $payment->data["security_code"] = $security_code;
             $payment->data["exp_date"] = $exp_date;
-            $payment->data["postal_code"] = $postalcode;
+            $payment->data["postal_code"] = $postal_code;
 
             if ($payment->save()) {
                 return true;

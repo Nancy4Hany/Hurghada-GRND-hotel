@@ -1,7 +1,7 @@
 <?php
 include "models/Room.php";
 session_start();
-
+$_SESSION['id']=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@ session_start();
             </ul>
             
         <?php
-            if (session_id())
+            if (isset($_SESSION["id"]))
 
             {
                 ?>
