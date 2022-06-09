@@ -97,7 +97,7 @@ public function room_type()
     public function showDetails()
     {   
      
-        $rooms = Room::find(2);
+        $rooms = Room::find($_GET["id"]);
         return($rooms);
     }
 

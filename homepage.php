@@ -100,7 +100,7 @@ $_SESSION['id'] = 1;
         <br>
         <br>
         <div class="w-50 h-50" style="align-content: center;">
-            <img class="img-fluid rounded" src="images/bestprofilepic.jpg" alt="profile">
+            <img class="img-fluid rounded" src="images/cus2.jpg" alt="profile">
         </div>
         <ul class="navbar">
             <li><a href="#header">Home</a></li>
@@ -290,7 +290,7 @@ $_SESSION['id'] = 1;
                     </div>
                     <h3>We Loved it</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
-                    <img src="img/cus1.jpg" alt="customer image">
+                    <img src="images/cus1.jpg" alt="customer image">
                     <span>Customer Name, Country</span>
                 </div>
                 <!-- end of single customer -->
@@ -305,7 +305,7 @@ $_SESSION['id'] = 1;
                     </div>
                     <h3>Comfortable Living</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
-                    <img src="img/cus2.jpg" alt="customer image">
+                    <img src="images/cus2.jpg" alt="customer image">
                     <span>Customer Name, Country</span>
                 </div>
                 <!-- end of single customer -->
@@ -320,7 +320,7 @@ $_SESSION['id'] = 1;
                     </div>
                     <h3>Nice Place</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
-                    <img src="img/cus1.jpg" alt="customer image">
+                    <img src="images/cus1.jpg" alt="customer image">
                     <span>Customer Name, Country</span>
                 </div>
                 <!-- end of single customer -->
