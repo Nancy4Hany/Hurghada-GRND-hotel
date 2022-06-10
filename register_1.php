@@ -32,7 +32,8 @@ $result = $controller->add_user();
                         <!-- <img src="images/signin.jpg" class="w-100 rounded" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt=" "> -->
                         <div class="card-body p-4 p-md-4">
                             <h3 class="text-center shadow p-3 mb-3 rounded" style="font-size:35px; color:#725A7A; font-family:Playfair Display;"><b><i>Sign-up</i></b></h3>
-                            <form class="form-outline px-md-2">
+                            
+                            <form class="form-outline px-md-2" method="post" action="<?php htmlspecialchars("")//for added security from injections  ?>">
                                 <div>
                                     <div class="mb-3">
                                         <label class="form-label" style="font-family: Open Sans; font-size:20px; color:#FFCE45" for="name">Name</label>

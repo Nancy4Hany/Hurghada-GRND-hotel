@@ -1,6 +1,6 @@
 <?php
 require_once dirname(__FILE__) . '/Model.php';
-require_once dirname(__FILE__) . '/User_Types.php';
+require_once dirname(__FILE__) . '/UserType.php';
 
 class User extends Model
 {
@@ -60,20 +60,5 @@ class User extends Model
         }
         return $instance;
     }
-    public  function getType()
-    {
-        $user = $this;
-        $user_type = UserType::find($user->data["id"]);
-        return $user_type->data["name"];
-    }
-    public static function login($email, $password)
-    {
-        $instance = new self();
-        $table = $instance->table;
-        $check = DB::query("SELECT id FROM {$table} WHERE email=:email AND password=:password", array(':email' => $email, ':password' => $password));
-        if ($check) {
-            return $check[0]["id"];
-        }
-        return false;
-    }
+ 
 }
