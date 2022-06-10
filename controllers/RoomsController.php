@@ -6,6 +6,7 @@ require_once dirname(__FILE__) . '/../models/ReservationRoom.php';
 
 require_once dirname(__FILE__).'/../models/RoomType.php'; 
 require_once dirname(__FILE__).'/../classes/DB.php';
+require_once dirname(__FILE__) . '/ActivityLogController.php';
 class RoomsController{
     public function add_room()
     {
@@ -64,6 +65,9 @@ class RoomsController{
             }
         }
         return false;
+        //funciton log (action,description,id)
+        ActivityLogController::makelog("room added", "", $$_SESSION['id']);
+   
     }
 public function room_type()
 {

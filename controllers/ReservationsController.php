@@ -5,6 +5,7 @@ require_once dirname(__FILE__).'/../models/Room.php';
 require_once dirname(__FILE__). '/../models/Reservation.php';
 require_once dirname(__FILE__) . '/../models/ActivityLog.php';
 require_once dirname(__FILE__).'/API/ReservationAPI.php';
+require_once dirname(__FILE__) . '/ActivityLogController.php';
 class ReservationsController
 {
     public function show()
@@ -53,6 +54,9 @@ class ReservationsController
             }
             return false;
         }
+      
+        //funciton log (action,description,id)
+        ActivityLogController::makelog("reservation added", "", $$_SESSION['id']);
     }
 
     public function create()
@@ -110,6 +114,8 @@ class ReservationsController
             return $reservation->data["id"];
         }
         return false;
+        //funciton log (action,description,id)
+        ActivityLogController::makelog("room created", "", $$_SESSION['id']);
     }
 
     

@@ -2,6 +2,7 @@
 require_once dirname(__FILE__) . '/../models/Feedback.php';
 require_once dirname(__FILE__) . '/../models/QCQuestion.php';
 require_once dirname(__FILE__) . '/../models/Reservation.php';
+require_once dirname(__FILE__).'/ActivityLogController.php';
 
 class FeedbackController{
     public function show_survey(){
@@ -36,5 +37,7 @@ class FeedbackController{
                 $i++;
             }
         }
+        //funciton log (action,description,id)
+        ActivityLogController::makelog("survey submitted", "", $$_SESSION['id']);
     }
 }

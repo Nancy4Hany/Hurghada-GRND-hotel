@@ -1,20 +1,33 @@
 <?php
 require_once dirname(__FILE__) . '/../models/ActivityLog.php';
-
+require_once dirname(__FILE__) . '/../classes/DB.php';
 
 class ActivityLogController{
 
-public function makelog($action,$description){
-$user_id=$_SESSION['id'];
+public static function makelog($action,$description,$id){
+  $a=$action;
+  $b=$description;
+  $c=$id;
+    
+// $user_id=$_SESSION['id'];
 
 
-$Activity_Log=new ActivityLog();
+$ActivityLog=new ActivityLog();
 
-$Activity_Log->data["user_id"]=$user_id;
-$Activity_Log->data["action"]=$action;
-$Activity_Log->data["description"] = $description;
+$ActivityLog->data["user_id"]=$c;
+$ActivityLog->data["action"]=$a;
+$ActivityLog->data["description"] = $b;
+        if ($ActivityLog->save()) {
+           
+            return true;
+            
+        }return false;
+}
+
+
+
 
 }
 
-}
+
 ?>

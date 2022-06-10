@@ -2,7 +2,7 @@
 require_once dirname(__FILE__) . '/../classes/DB.php';
 require_once dirname(__FILE__) . '/../models/User.php';
 require_once dirname(__FILE__) . '/../models/UserType.php';
-
+require_once dirname(__FILE__) . '/ActivityLogController.php';
 class UserController
 {
     public function date()

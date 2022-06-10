@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/../models/Payment.php';
 require_once dirname(__FILE__) . '/../classes/DB.php';
+require_once dirname(__FILE__) . '/ActivityLogController.php';
 class PaymentController
 {
     public function add_payment()
@@ -28,7 +29,7 @@ class PaymentController
             } 
             
             else { //if all validations are complete proceed to database
-                $_SESSION["id"] = 1;
+                
 
                 $user_id = $_SESSION['id'];
                 $card_holder = $_POST['card_holder'];
@@ -58,6 +59,12 @@ class PaymentController
             //FOR TESTING
 
         }
+
+        //make function types the pricce paid 
+
+        //funciton log (action,description,id)
+        ActivityLogController::makelog("payment", "", $$_SESSION['id']);
+
         return false;
     }
 }

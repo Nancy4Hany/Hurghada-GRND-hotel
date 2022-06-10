@@ -73,29 +73,29 @@ $result = $controller->add_payment();
                             <div class="block w-full md:flex">
                                 <div class="mr-10">
                                     <label for="" class="block text-sm mb-4">Card holder</label>
-                                    <input  type="text" name="card_holder" class="border-2 w-64 h-10 rounded-sm ">
+                                    <input required type="text" name="card_holder" class="border-2 w-64 h-10 rounded-sm ">
                                 </div>
                                 <div class="mr-10">
                                     <label for="" class="block text-sm mb-4">Credit card number</label>
-                                    <input  type="text" name="creditcard_number" class="border-2 w-64 h-10 rounded-sm ">
+                                    <input required type="text" name="creditcard_number" class="border-2 w-64 h-10 rounded-sm ">
                                 </div>
                                 <div>
                                     <label for="" class="block text-sm mb-4">Expiration Month</label>
-                                    <input  type="text" name="exp_month" class="border-2 w-64 h-10 rounded-sm ">
+                                    <input required type="text" name="exp_month" class="border-2 w-64 h-10 rounded-sm ">
                                 </div>
                             </div>
                             <div class="block w-full md:flex">
                                 <div class="mr-10">
                                     <label for="" class="block text-sm mb-4 mt-4">Security Code</label>
-                                    <input  type="text" name="security_code" class="border-2 w-64 h-10 rounded-sm ">
+                                    <input required type="text" name="security_code" class="border-2 w-64 h-10 rounded-sm ">
                                 </div>
                                 <div>
                                     <label for="" class="block text-sm mb-4 mt-4">Postal Code</label>
-                                    <input  type="text" name="postal_code" class="border-2 w-64 h-10 rounded-sm ">
+                                    <input required type="text" name="postal_code" class="border-2 w-64 h-10 rounded-sm ">
                                 </div>
                                 <div>
                                     <label for="" class="block text-sm mb-4 mt-4">Expiration Year</label>
-                                    <input  type="text" name="exp_year" class="border-2 w-60 h-10 rounded-sm ">
+                                    <input required type="text" name="exp_year" class="border-2 w-60 h-10 rounded-sm ">
                                 </div>
                             </div>
                             <div class="flex justify-start items-center mt-5">
