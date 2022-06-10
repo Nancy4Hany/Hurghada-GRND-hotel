@@ -128,6 +128,7 @@ class UserController{
         }
         return false;
     }
+<<<<<<< HEAD
     
     public function login(){
         if(isset($_SESSION['id'])){
@@ -176,6 +177,8 @@ class UserController{
             }
         }
     }
+=======
+>>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
     //loji pulled
 
     // public function login(){
@@ -216,6 +219,7 @@ class UserController{
     //     return false;
     // }
 
+<<<<<<< HEAD
 
     public function disable_rec_acc()
     {
@@ -260,6 +264,8 @@ class UserController{
 }
 
 
+=======
+>>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
 
 //             $national_id = $_FILES['national_id'];
 //             $target_directory = dirname(__FILE__).'/../uploads';

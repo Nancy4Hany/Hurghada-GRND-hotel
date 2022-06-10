@@ -96,7 +96,10 @@ public function room_type()
 
     public function showDetails()
     {   
+<<<<<<< HEAD
      
+=======
+>>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
         $rooms = Room::find(2);
         return($rooms);
     }

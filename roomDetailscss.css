@@ -1,0 +1,100 @@
+.card-body
+{
+    position: absolute; 
+    left: 50%;
+    top: 25%;
+}
+.card{
+    padding-bottom: 10%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.rooms .slider {
+
+    align-items: left;
+    width: 800px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    user-select: none;
+}
+.rooms .slider .slides{
+    background-color: #a95c19a9;
+    padding: 30px;
+    height: 400px;
+    transition: all 0.15s ease;
+    user-select: none;
+    border-radius: 5%;
+}
+.rooms .slider .overflow{
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+}
+.rooms .slider .inner{
+    transition: margin-left 800ms cubic-bezier(0.77, 0, 0.175, 1);
+    width: 400%;
+    height: 340px;
+    user-select: none;
+}
+.rooms .slider .slide{
+    width: 25%;
+    float: left;
+    display: block;
+    height: 100%;
+    user-select: none;
+}
+.rooms .slides .content{
+    padding: 5px;
+    user-select: none;
+}
+.rooms .slides .content img {
+    width: 60%
+}
+
+.rooms .slider input {
+    display: none;
+}
+
+.rooms .dots {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    user-select: none;
+}
+
+.rooms .dots label {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin: 5px;
+    background: #a95c19a9;
+    user-select: none;
+}
+
+#img1:checked ~ .slides .inner {
+    margin-left: 0;
+}
+
+#img2:checked ~ .slides .inner {
+    margin-left: -100%;
+}
+
+#img3:checked ~ .slides .inner {
+    margin-left: -200%;
+}
+
+#img4:checked ~ .slides .inner {
+    margin-left: -300%;
+}
+
+#img1:checked ~ .dots label:nth-of-type(1),
+#img2:checked ~ .dots label:nth-of-type(2),
+#img3:checked ~ .dots label:nth-of-type(3),
+#img4:checked ~ .dots label:nth-of-type(4) {
+    background: var(--brown2-color);
+    user-select: none;
+}

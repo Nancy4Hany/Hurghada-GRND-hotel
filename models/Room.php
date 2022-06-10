@@ -4,8 +4,11 @@ require_once dirname(__FILE__). '/ReservationRoom.php';
 require_once dirname(__FILE__) . '/Reservation.php';
 require_once dirname(__FILE__) . '/RoomPhoto.php';
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
 
 class Room extends Model{
     protected $table = "rooms";
@@ -57,11 +60,14 @@ class Room extends Model{
         }, $values);
         return $values;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
     public static function find($id){
         $instance = new self();
         $table = $instance->table;
-        $data = DB::query("SELECT r.*, t.name as room_type_name FROM $table r, room_types t WHERE t.id = r.room_type_id AND r.id = :id",array(":id"=>$id));
+        $data = DB::query("SELECT r.*, t.name as room_type_name, u.image as room_image FROM $table r, room_types t, room_photos u WHERE u.room_id = r.id AND t.id = r.room_type_id AND r.id = :id",array(":id"=>$id));
         if($data){
             $instance->data = $data[0];
             $instance->data = array_filter($instance->data, function($key) use ($instance) { 
@@ -96,7 +102,10 @@ class Room extends Model{
         return $data;
     }
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
     public  static function allByType($type){
         $instance = new self();
         $table = $instance->table;
@@ -107,5 +116,17 @@ class Room extends Model{
         return $values;
     }
 
+<<<<<<< HEAD
+=======
+    public static function homepage(){
+        $instance = new self();
+        $table = $instance->table;
+        $values = DB::query("SELECT r.*, t.name as room_type_name t.price FROM $table r, room_types t WHERE t.id = r.room_type_id");
+        $values = array_map(function($array){
+            return array_filter($array, function($key) { return gettype($key) != "integer"; }, ARRAY_FILTER_USE_KEY);
+        }, $values);
+        return $values;
+    }
+>>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
 
 }
