@@ -18,8 +18,8 @@ include "../includes/dashboard/header.php";
         <input type="hidden" name="type" value="reservation">
         <input type="password" name="pin" placeholder="Enter manager PIN" class="py-2 px-8 rounded w-full mb-4 dark:bg-gray-600 dark:text-white">
         <div class="flex">
-          <a href="<?= $_SERVER['HTTP_REFERER'] ?>" class="py-2 px-4 bg-purple-500 rounded-md text-white">No</a>
-          <input type="submit" name="delete" value="Yes" class="py-2 px-4 bg-red-500 ml-4 cursor-pointer rounded-md text-white">
+          <a href="<?= $_SERVER['HTTP_REFERER'] ?>" class="py-2 px-4 bg-red-500 rounded-md text-white">No</a>
+          <input type="submit" name="delete" value="Yes" class="py-2 px-4 bg-purple-500 ml-4 cursor-pointer rounded-md text-white">
         </div>
       </form>
     </div>
