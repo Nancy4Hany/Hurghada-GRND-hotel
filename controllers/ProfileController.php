@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/../classes/DB.php';
 require_once dirname(__FILE__) . '/../models/User.php';
-
+require_once dirname(__FILE__) . '/ActivityLogController.php';
 class ProfileController
 {
     public function showData()

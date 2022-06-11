@@ -38,12 +38,12 @@ $rooms = $controller->showDetails();
                     </div>
                     <div class="slide m3">
                         <div class="content">
-                            <img src="../../resources/img/home page/bathroom.jpg">
+                            <img src="../../resources/images/home page/bathroom.jpg">
                         </div>
                     </div>
                     <div class="slide m4">
                         <div class="content">
-                            <img src="../../resources/img/home page/room.jpg">
+                            <img src="../../resources/images/home page/room.jpg">
                         </div>
                     </div>
                 </div>

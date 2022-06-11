@@ -54,8 +54,24 @@ include "models/Room.php";
                 <li><a href = "#customers">Reservation in progress</a></li>
                 <li><a href = "#customers">Done reservation</a></li>
             </ul>
+            <?php if(isset($_SESSION["id"]))
+            {
+                  ?>
+            <a href="logout.php" style="text-decoration:none;"><button class = "btn log-in">Log Out</button></a>
+          <?php  } 
+          else
+          {
+              ?>
+               <a href="SignUp.php" style="text-decoration:none;"> <button class = "btn">Sign Up</button> </a>
+               <a href="login.php" style="text-decoration:none;"><button class = "btn log-in">Login</button></a>
+              <?php
+          }
+          
+          ?>
+
+        
             
-            <button class = "btn log-in">log out</button>
+          
         </div>
         <!-- end of side navbar -->
 
@@ -173,7 +189,7 @@ include "models/Room.php";
                   ?>
                 <article class = "room">
                     <div class = "room-image">
-                        <img src = "img/img1.jpg" alt = "room image">
+                        <img src = "images/img1.jpg" alt = "room image">
                     </div>
                     <div class = "room-text">
                         <h3><?= $room["name"]; ?></h3>
@@ -224,7 +240,7 @@ include "models/Room.php";
                         </div>
                         <h3>We Loved it</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
-                        <img src = "img/cus1.jpg" alt = "customer image">
+                        <img src = "images/cus1.jpg" alt = "customer image">
                         <span>Customer Name, Country</span>
                     </div>
                     <!-- end of single customer -->
@@ -239,7 +255,7 @@ include "models/Room.php";
                         </div>
                         <h3>Comfortable Living</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
-                        <img src = "img/cus2.jpg" alt = "customer image">
+                        <img src = "images/cus2.jpg" alt = "customer image">
                         <span>Customer Name, Country</span>
                     </div>
                     <!-- end of single customer -->
@@ -254,7 +270,7 @@ include "models/Room.php";
                         </div>
                         <h3>Nice Place</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat beatae veritatis provident eveniet praesentium veniam cum iusto distinctio esse, vero est autem, eius optio cupiditate?</p>
-                        <img src = "img/cus1.jpg" alt = "customer image">
+                        <img src = "images/cus1.jpg" alt = "customer image">
                         <span>Customer Name, Country</span>
                     </div>
                     <!-- end of single customer -->

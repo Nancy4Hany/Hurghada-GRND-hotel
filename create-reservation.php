@@ -219,6 +219,11 @@ if(isset($reservation_id)){
                         Next
                     </button>
                 </div>
+                <div class="mt-4 flex justify-center">
+                    <a href="index.php" class="table mt-4 mx-2 bg-gray-800 text-white py-2 px-8">
+                        Back to home
+                    </a>
+                </div>
             </form>
         </div>
     </div>

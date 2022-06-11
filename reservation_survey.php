@@ -8,12 +8,17 @@ require "models/QCQuestionType.php";
 
 //$questions = array_map(function($name){
 //   return array($name, QCQuestionType::find())},$questions);
-<<<<<<< HEAD
-//
-?>
-=======
-//?>
->>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
+// <<<<<<< HEAD
+// <<<<<<< HEAD
+// //
+// ?>
+// =======
+// //?>
+// >>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
+// =======
+// //
+// ?>
+// >>>>>>> 0f1f508138ac55aad6b3ff89c1864367c7d0f2fd
 
 
 <!DOCTYPE html>

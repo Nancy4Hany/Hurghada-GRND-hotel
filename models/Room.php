@@ -3,13 +3,6 @@ require_once dirname(__FILE__) . '/Model.php';
 require_once dirname(__FILE__). '/ReservationRoom.php';
 require_once dirname(__FILE__) . '/Reservation.php';
 require_once dirname(__FILE__) . '/RoomPhoto.php';
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
-
 class Room extends Model{
     protected $table = "rooms";
     public $data;
@@ -60,10 +53,6 @@ class Room extends Model{
         }, $values);
         return $values;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
     public static function find($id){
         $instance = new self();
         $table = $instance->table;
@@ -102,10 +91,6 @@ class Room extends Model{
         return $data;
     }
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
     public  static function allByType($type){
         $instance = new self();
         $table = $instance->table;
@@ -116,8 +101,6 @@ class Room extends Model{
         return $values;
     }
 
-<<<<<<< HEAD
-=======
     public static function homepage(){
         $instance = new self();
         $table = $instance->table;
@@ -127,6 +110,5 @@ class Room extends Model{
         }, $values);
         return $values;
     }
->>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
 
 }

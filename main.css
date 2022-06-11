@@ -54,7 +54,7 @@ img{
 
 /* header */
 .header{
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("img/banner-img\ \(1\).jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url("images/banner-img\ \(1\).jpg") center/cover no-repeat;
     min-height: 100vh;
     color: #fff;
     padding: 25px;

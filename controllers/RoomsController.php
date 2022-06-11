@@ -50,13 +50,14 @@ class RoomsController{
             
             if($room->save()){
                 foreach($_FILES['image']["name"] as $key=>$val){
-                    $target_directory = dirname(__FILE__).'/../uploads';
+                    $directory = "uploads";
+                    $target_directory = dirname(__FILE__).'/../'.$directory ;
                     $ext = @end((explode(".", $_FILES['image']["name"][$key])));
                     $file_name = time() . ".$ext";
                     $target_file = $target_directory . '/'. $file_name;
                     move_uploaded_file($_FILES["image"]["tmp_name"][$key], $target_file);
                     $room_photo = new RoomPhoto();
-                    $room_photo->data["image"] = $file_name;
+                    $room_photo->data["image"] = $directory.'/'.$file_name;
                     $room_photo->data["room_id"] = $room->data["id"];
                     $room_photo->save();
                 }
@@ -96,10 +97,6 @@ public function room_type()
 
     public function showDetails()
     {   
-<<<<<<< HEAD
-     
-=======
->>>>>>> 608b834db4d0d44ab558f0b0f0ff82e7e9bb7ee6
         $rooms = Room::find(2);
         return($rooms);
     }
